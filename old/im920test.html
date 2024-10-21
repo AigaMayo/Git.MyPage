@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            IM920sl
+        </title>
+    </head>
+    <body>
+        <h1>使用機器</h1>
+        <a>
+            ・IM920sl x 2<br>
+            ・arduino nano<br>
+            ・IM920-ADP<br>
+            ・IM920-USB2<br>
+        </a>
+        <h1>配線</h1>
+        <a>(( arduino nanoのポート名・ピン機能 - IM920c-ADP(アダプタ)のピン番号 - IM920slのピン番号・ピン機能 ))<br></a>
+        <a>3V3 - J1側 9pin - Vcc<br></a>
+        <a>GND - J2側 9pin - GND<br></a>
+        <a>D 4 - J1側 4pin - TxD<br></a>
+        <a>D 3 - J2側 3pin - RxD<br></a>
+        <a>D 8 - J1側 1pin - IO1/BUSY<br></a>
+        <h1>無線機設定値</h1>
+        <h3>基地局側</h3>
+        <p>ID:000197D3<br>
+
+            STNN:0002<br>
+            
+            STGN:00019864<br>
+            
+            STRT:3<br>
+            
+            STCH:31<br>
+            
+            STPO:2<br>
+            
+            STNM:1<br>
+            
+            STTH:00<br>
+            
+            SRTH:00<br>
+            
+            WTRT:95<br>
+            
+            STTL:10<br>
+            
+            STTR:00<br>
+            
+            SSTM:0000<br>
+            
+            SWTM:0000<br>
+            
+            STTN:0000<br>
+            
+            STAT:0001<br>
+            
+            STTG:FFFFFFFF<br>
+            
+            ENRX<br>
+            
+            ENAK<br>
+            
+            DCIO<br>
+            
+            DENC<br>
+            
+            DSAD<br>
+            
+            DSAR<br>
+            
+            DSSS<br>
+            
+            DSNF<br>
+            
+            DSRC<br>
+            
+            DTRC<br>
+            
+            DORT<br>
+            
+            DADR<br>
+            
+            DOMI<br>
+            
+            ENHP<br>
+            
+            DSEF<br>
+            
+            DRXI<br>
+            
+            ENWR<br><br></p>
+        <h3>送信機側</h3>
+        <p>ID:00019864<br>
+
+            STNN:0001<br>
+            
+            STGN:00019864<br>
+            
+            STRT:3<br>
+            
+            STCH:31<br>
+            
+            STPO:2<br>
+            
+            STNM:1<br>
+            
+            STTH:00<br>
+            
+            SRTH:00<br>
+            
+            WTRT:95<br>
+            
+            STTL:10<br>
+            
+            STTR:00<br>
+            
+            SSTM:0000<br>
+            
+            SWTM:0000<br>
+            
+            STTN:0000<br>
+            
+            STAT:0001<br>
+            
+            STTG:FFFFFFFF<br>
+            
+            ENRX<br>
+            
+            ENAK<br>
+            
+            DCIO<br>
+            
+            DENC<br>
+            
+            DSAD<br>
+            
+            DSAR<br>
+            
+            DSSS<br>
+            
+            DSNF<br>
+            
+            DSRC<br>
+            
+            DTRC<br>
+            
+            DORT<br>
+            
+            DADR<br>
+            
+            DOMI<br>
+            
+            ENHP<br>
+            
+            DSEF<br>
+            
+            DRXI<br>
+            
+            ENWR<br><br></p>
+        <h1>EMプログラム</h1>
+        <pre>
+        #include ＜SoftwareSerial.h＞<br>
+            <br>
+        SoftwareSerial IM920Serial(4,3); // RX, TX<br>
+            <br>
+        void setup() {<br>
+            IM920Serial.begin(19200);<br>
+             <br>
+            pinMode(8,OUTPUT);//busy<br>
+            digitalWrite(8, HIGH);<br>
+        }<br>
+            <br>
+        void loop() {<br>
+            IM920Serial.print("TXDU 0002 123456\r\n");<br>
+            delay(1000);<br>
+        }<br></pre>
+        <h1>FMプログラム</h1>
+        <pre>
+        #include ＜SoftwareSerial.h＞<br>
+            <br>
+        SoftwareSerial IM920Serial(11,10); // RX, TX<br>
+            <br>
+        void setup() {<br>
+            IM920Serial.begin(19200);<br>
+             <br>
+            pinMode(8,OUTPUT);//busy<br>
+            digitalWrite(8, HIGH);<br>
+        }<br>
+            <br>
+        void loop() {<br>
+            IM920Serial.print("TXDU 0002 123456\r\n");<br>
+            delay(1000);<br>
+        }<br></pre>
+    </body>
+
+</html>
