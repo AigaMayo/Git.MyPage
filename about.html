@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>アーティスト(画家・作家・音楽家・芸能人など)向け 無料ホームページテンプレート tp_artist2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ここにサイト説明を入れます">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+
+<h1 id="logo"><img src="images/logo.png" alt="Artist Web Site"><span>アーティストウェブサイト</span></h1>
+
+<!--開閉ブロック-->
+<div id="menubar">
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="index.html#section2">Profile</a></li>
+<li><a href="index.html#section3">Activity Report</a></li>
+<li><a href="index.html#section4">Gallery</a></li>
+</ul>
+</nav>
+
+<ul class="icons">
+<li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+<li><a href="#"><i class="fab fa-line"></i></a></li>
+<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+</ul>
+
+</div>
+<!--/#menubar-->
+
+</header>
+
+<main>
+
+<section>
+
+<h2>当テンプレートの使い方</h2>
+
+<p><strong class="color-check">titleタグの設定はとても重要です。念入りにワードを選んで適切に入力しましょう。</strong><br>
+まず、htmlソースが見れる状態にして、<br>
+<span class="look">&lt;title&gt;アーティスト(画家・作家・音楽家・芸能人など)向け 無料ホームページテンプレート tp_artist2&lt;/title&gt;</span><br>
+を編集しましょう。<br>
+あなたのホームページ名が「Artist Web Site」だとすれば、<br>
+<span class="look">&lt;title&gt;Artist Web Site&lt;/title&gt;</span><br>
+とすればＯＫです。SEO対策もするなら冒頭に重要なワードを入れておきましょう。</p>
+<p><strong class="color-check">copyrightを変更しましょう。</strong><br>
+続いてhtmlの下の方にある、<br>
+<span class="look">Copyright&copy; Artist Web Site All Rights Reserved.</span><br>
+の部分もあなたのサイト名に変更します。</p>
+<p><strong class="color-check">metaタグを変更しましょう。</strong><br>
+htmlソースが見える状態にしてmetaタグを変更しましょう。</p>
+<p>ソースの上の方に、<br>
+<span class="look">content=&quot;ここにサイト説明を入れます&quot;</span><br>
+という部分がありますので、テキストをサイトの説明文に入れ替えます。検索結果の文面に使われる場合もありますので、見た人が来訪したくなるような説明文を簡潔に書きましょう。</p>
+<p><strong class="color-check">h1ロゴのaltタグも変更しましょう。</strong><br>
+html側に、<br>
+<span class="look">alt=&quot;Artist Web Site&quot;</span><br>
+となっている箇所があるので、この部分もあなたのサイト名に変更しましょう。</p>
+
+</section>
+
+<section>
+
+<h2>アイコン画像について（Font Awesomeの解説）</h2>
+<p>imagesフォルダに入っていない画像（アイコン）は全てFont Awesomeの素材です。<br>
+<a href="https://fontawesome.com/" target="_blank">Font Awesome 公式サイト</a><br>
+<a href="https://fontawesome.com/v5.15/icons?d=gallery&p=2" target="_blank">Font Awesome アイコン一覧</a></p>
+<p>iタグを使ってhtmlに直接アイコンを読み込む場合と、cssの擬似要素を使って読み込む場合があります。<br>
+それぞれ他のアイコンに置き換えたい場合は、当サイトの<a href="https://template-party.com/tips/tips20211126_font_awesome.html">マニュアル</a>をお読み下さい。</p>
+<p><strong class="color-check">Font Awesomeを使う為に必要なタグ、ファイル類。</strong><br>
+cssフォルダのstyle.css冒頭で読み込んでいる「Font Awesomeの読み込み」のブロック。</p>
+<p><strong class="color-check">何年も経過した場合、動作に問題が出てくる可能性があります。</strong><br>
+テンプレートを編集していないのに突然動きがおかしくなった場合は、style.cssの冒頭でCDNから読み込んでいるFont Awesome関連のファイルのバージョンを変更して動作するか確認してみて下さい。</p>
+
+</section>
+
+<section>
+
+<h2>メニューについて</h2>
+<p>画面幅が900px未満で、メインメニューが開閉ブロックタイプになります。<br>
+この数値を変更したい場合は、jsフォルダのmain.jsの、<br>
+<span class="look">if(window.innerWidth &lt; <span class="color-check">900</span>)</span><br>
+の、<span class="color-check">900</span>の数値を変更して下さい。</p>
+<h3>通常はfixed表示ですが、画面の高さが500px以下になるとabsoluteになります</h3>
+<p>PCなどの大きな端末で見た場合は、メニューはスクロールしても動かないfixedになっていますが、スマホなどの小さな端末を横に倒した際に、メニューが切れてスクロールもできなくなるので、それを回避する為、500px以下の画面の高さになると、スクロールとともに移動するabsoluteに変更されます。<br>
+現状からメニュー数を増やす際は、ここのブレイクポイント（500pxという数値）を変更してスクロールできるようにして下さい。<br>
+設定箇所は、cssフォルダのstyle.cssの、<br>
+headerの設定内にある、<br>
+<span class="look">max-height:<span class="color-check">500px</span></span><br>
+の部分です。</p>
+
+</section>
+
+<section id="section2" class="section">
+
+<h2>背景画像入りブロックの解説</h2>
+<h3>_movieタイプ以外は全て背景に画像が指定されています</h3>
+<p><span class="look">&lt;section&gt;</span><br>
+を、<br>
+<span class="look">&lt;section <span class="color-check">id=&quot;section2&quot; class=&quot;section&quot;</span>&gt;</span><br>
+などに指定することで背景画像タイプになります。</p>
+<p>class=&quot;section&quot;は背景画像入りブロックには共通で入れるようにして下さい。</p>
+<p>画像との紐付けはid部分です。<br>
+画像を入れ替えたい場合は、cssフォルダのstyle.cssの、「section」のブロックを読んでみて下さい。<br>
+色のついた画像上のボックスの設定も同じブロック内にあります。</p>
+<h3>閲覧端末の縦向き・横向きで画像を入れ替えるようになっています。</h3>
+<p>※「_abstract」と「_illust」と「_photo」タイプは縦長・横長で同じ画像を使う設定になっています。</p>
+<p>imagesフォルダに入っている背景画像のファイル名の語尾に_portraitとついているものが縦長端末用に用意した画像です。<br>
+切り替えの指定はcssフォルダのstyle.cssの、sectionのブロック内にあります。<br>
+もし縦長でも横長でも同じ画像でいい場合は、<br>
+<span class="look">/*縦向き端末から見た場合に背景画像をチェンジする*/</span><br>
+からの十数行を削除すればOKです。<br>
+その際は_portraito画像は使われないのでimagesフォルダから削除してもらってOKです。</p>
+<h3>_movieタイプはファーストビューだけが動画になっています</h3>
+<p>全てが画像のタイプとはhtmlもcssも構成が異なるので、どちらを使いたいか決めてから、該当するテンプレートをDLして編集して下さい。<br>
+尚、当テンプレートで動画にできるのは最初のコーナーだけです。全部のセクションを動画にすることはできないのでご注意下さい。</p>
+<p>_movieタイプも縦向き・横向きで動画を入れ替えられます。<br>
+こちらはcssではなく、html側に直接video要素として書かれています。それをcssで表示の切り替えを行っています。<br>
+こちらも１つの動画で共用したいなら、２つあるhtml内のvideo要素で読み込んでいる.mp4のファイル名を合わせておけばOKです。他の方法もありますが、縦画面でも横画面でも同じ動画を表示するというこの方法が簡単です。</p>
+
+<h2>画像だけを見せたい場合は</h2>
+<p>以下のブロックのように、section要素に<span class="look">no-bgcolor</span>を追加すればOKです。<br>
+詳しくはhtml側を見て下さい。</p>
+
+</section>
+
+<section id="section3" class="section no-bgcolor">
+</section>
+
+</main>
+
+<footer>
+<small>Copyright&copy; <a href="index.html">Artist Web Site</a> All Rights Reserved.</small>
+<span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+</footer>
+
+<!--ページの上部へ戻るボタン-->
+<div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+
+<!--開閉ボタン（ハンバーガーアイコン）-->
+<div id="menubar_hdr">
+<span></span><span></span><span></span>
+</div>
+
+<!--jQueryの読み込み-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!--lightbox用jsファイルの読み込み-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox-plus-jquery.min.js"></script>
+
+<!--このテンプレート専用のスクリプト-->
+<script src="js/main.js"></script>
+
+</body>
+</html>
