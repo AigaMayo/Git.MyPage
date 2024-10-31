@@ -111,7 +111,7 @@ header {
 header #logo img {display: block;}
 header #logo {
 	margin: 0;
-	background: linear-gradient(30deg, #9efaad, #2b548a, #d22caf);/*グラデーション。30degは角度。*/
+	background: linear-gradient(30deg, #be93c5, #7bc6cc);/*グラデーション。30degは角度。*/
 	padding: 2rem;		/*ロゴ内の余白*/
 	border-radius: 5px;	/*角を丸くする指定*/
 }
@@ -362,7 +362,8 @@ section {
 	color: #fff;	/*文字色*/
 }
 #section4::before {
-	background: #3b2434;	/*section4だけは背景画像ではなく、単に背景色だけ指定しました。*/
+	/*background: #3b2434;*/	/*section4だけは背景画像ではなく、単に背景色だけ指定しました。*/
+	background: url('../images/section4.jpg') no-repeat center center / cover;	/*背景画像の読み込み*/
 }
 
 /*背景色を入れない場合（画像だけを表示したい場合）*/
