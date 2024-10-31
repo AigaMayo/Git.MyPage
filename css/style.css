@@ -237,7 +237,7 @@ main h3 {
 	display: flex;					/*flexボックスを使う指定*/
 	flex-direction: column;			/*子要素（３本バー）部分。flexはデフォルトで横並びになるので、それを縦並びに変更。*/
 	justify-content: space-between;	/*並びかたの種類の指定*/
-	background: #d30c44;	/*背景色*/
+	background: #cbbacc;	/*背景色*/
 }
 
 /*バー１本あたりの設定*/
