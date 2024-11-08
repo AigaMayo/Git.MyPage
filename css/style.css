@@ -341,7 +341,8 @@ section {
 
 /*section2の設定*/
 #section2 {
-	background-color: rgba(57,108,103,0.7);	/*背景色。３つ目までの数字はrgbでの色指定。最後の小数点は透明度。*/
+	/*background-color: rgba(57,108,103,0.7);	/*背景色。３つ目までの数字はrgbでの色指定。最後の小数点は透明度。*/
+	background-color: rgba(108, 96, 57, 0.7);	/*背景色。３つ目までの数字はrgbでの色指定。最後の小数点は透明度。*/
 	color: #fff;	/*文字色*/
 }
 #section2::before {
