@@ -111,7 +111,7 @@ header {
 header #logo img {display: block;}
 header #logo {
 	margin: 0;
-	background: linear-gradient(30deg, #7e7e7e, #9bcdff);/*グラデーション。30degは角度。*/
+	background: linear-gradient(30deg, #7e7e7e, #a53939);/*グラデーション。30degは角度。*/
 	padding: 2rem;		/*ロゴ内の余白*/
 	border-radius: 5px;	/*角を丸くする指定*/
 }
