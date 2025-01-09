@@ -111,7 +111,7 @@ header {
 header #logo img {display: block;}
 header #logo {
 	margin: 0;
-	background: linear-gradient(30deg, #7e7e7e, #a53939);/*グラデーション。30degは角度。*/
+	background: linear-gradient(30deg, #b6b6b6, #AAB99A);/*グラデーション。30degは角度。*/
 	padding: 2rem;		/*ロゴ内の余白*/
 	border-radius: 5px;	/*角を丸くする指定*/
 }
@@ -237,7 +237,7 @@ main h3 {
 	display: flex;					/*flexボックスを使う指定*/
 	flex-direction: column;			/*子要素（３本バー）部分。flexはデフォルトで横並びになるので、それを縦並びに変更。*/
 	justify-content: space-between;	/*並びかたの種類の指定*/
-	background: #a53939;	/*背景色*/
+	background: #AAB99A;	/*背景色*/
 }
 
 /*バー１本あたりの設定*/
@@ -342,30 +342,35 @@ section {
 /*section2の設定*/
 #section2 {
 	/*background-color: rgba(57,108,103,0.7);	/*背景色。３つ目までの数字はrgbでの色指定。最後の小数点は透明度。*/
-	background-color: rgba(108, 96, 57, 0.7);	/*背景色。３つ目までの数字はrgbでの色指定。最後の小数点は透明度。*/
+	/*background-color: rgba(108, 96, 57, 0.7);	/*背景色。３つ目までの数字はrgbでの色指定。最後の小数点は透明度。*/
+	background-color: rgba(114, 125, 115, 0.7);	/*背景色。３つ目までの数字はrgbでの色指定。最後の小数点は透明度。*/
 	color: #fff;	/*文字色*/
 }
 #section2::before {
-	background: url('../images/section2.jpg') no-repeat center center / cover;	/*背景画像の読み込み*/
+	/*background: url('../images/02section2.JPG') no-repeat center center / cover;	/*背景画像の読み込み*/
+	background: #e3e3c4;*/	/*section4だけは背景画像ではなく、単に背景色だけ指定しました。*/
 }
 
 /*section3の設定*/
 #section3 {
-	background-color: rgba(16,40,74,0.7);	/*背景色。３つ目までの数字はrgbでの色指定。最後の小数点は透明度。*/
+	/*background-color: rgba(16,40,74,0.7);	/*背景色。３つ目までの数字はrgbでの色指定。最後の小数点は透明度。*/
+	background-color: rgba(114, 125, 115, 0.7);	/*背景色。３つ目までの数字はrgbでの色指定。最後の小数点は透明度。*/
 	color: #fff;	/*文字色*/
 }
 #section3::before {
-	background: url('../images/001section3.jpg') no-repeat center center / cover;	/*背景画像の読み込み*/
+	background: #e3e3c4;*/	/*section4だけは背景画像ではなく、単に背景色だけ指定しました。*/
+	/*background: url('../images/001section3.jpg') no-repeat center center / cover;	/*背景画像の読み込み*/
 }
 
 /*section4の設定*/
 #section4 {
-	background-color: rgba(62, 25, 52, 0.7);	/*背景色。３つ目までの数字はrgbでの色指定。最後の小数点は透明度。*/
+	/*background-color: rgba(62, 25, 52, 0.7);	/*背景色。３つ目までの数字はrgbでの色指定。最後の小数点は透明度。*/
+	background-color: rgba(114, 125, 115, 0.7);	/*背景色。３つ目までの数字はrgbでの色指定。最後の小数点は透明度。*/
 	color: #fff;	/*文字色*/
 }
 #section4::before {
-	/*background: #3b2434;*/	/*section4だけは背景画像ではなく、単に背景色だけ指定しました。*/
-	background: url('../images/AWsection4.JPG') no-repeat center center / cover;	/*背景画像の読み込み*/
+	background: #e3e3c4;*/	/*section4だけは背景画像ではなく、単に背景色だけ指定しました。*/
+	/*background: url('../images/AWsection4.JPG') no-repeat center center / cover;	/*背景画像の読み込み*/
 }
 
 /*背景色を入れない場合（画像だけを表示したい場合）*/
