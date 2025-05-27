@@ -16,6 +16,8 @@
 
         <main>
             <pre class="prettyprint linenums">
+#X.Report3.py
+
 import numpy as np
 import math
 
@@ -141,7 +143,7 @@ def case1():
         #Addition_PRatio_resul計算
         Addition_PRatio_result = Addition_PRatio_result * PRatio_Result[i+1]
 
-    print('Case1：斜め衝撃波（M.final, P.Ratio.final, Entropy.result）')
+    print('Case1：斜め衝撃波')
     print(Mn[5],', ',Addition_PRatio_result,', ',Addition_entropy_result)
 
 def case2():
@@ -172,10 +174,10 @@ def case2():
     #Addition_PRatio_resul計算
     Addition_PRatio_result_C2 = Addition_PRatio_result_C2 * PRatio_Result_C2
 
-    print('Case2：垂直衝撃波（M.final, P.Ratio.final, Entropy.result）')
+    print('Case2：垂直衝撃波')
     print(M2,', ',Addition_PRatio_result_C2,', ',Addition_entropy_result_C2)
 
-
+print('・計算結果（最終マッハ数, 全圧比, エントロピー変化量）')
 case1()
 case2()
             </pre>
