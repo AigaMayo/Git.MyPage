@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>実験データリスト（中央揃え）</title>
+    <style>
+      /* 罫線とパディングのスタイル */
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 8px;
+        text-align: left;
+      }
+      /* 検索ボックスのスタイル */
+      th input {
+        width: 90%;
+        box-sizing: border-box;
+        margin-top: 5px;
+      }
+      
+      /* 中央揃えのスタイル */
+      th, td:nth-of-type(1), td:nth-of-type(3), td:nth-of-type(4), td:nth-of-type(5), td:nth-of-type(6) {
+        text-align: center;
+      }
+
+    /* 行の高さ調整 */
+    /* 見出し行の高さ調整 */
+    th {
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+
+    /* データ行の高さ調整 */
+    td {
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+
+    </style>
+</head>
+<body>
+    <h1>実験データリスト</h1>
+    <table id="myTable">
+      <thead>
+        <tr>
+          <th>File-name<br><input type="text" onkeyup="filterTable(0)" placeholder="検索..."></th>
+          <th>内容<br><input type="text" onkeyup="filterTable(1)" placeholder="検索..."></th>
+          <th>Vp2<br><input type="text" onkeyup="filterTable(2)" placeholder="検索..."></th>
+          <th>Vp3<br><input type="text" onkeyup="filterTable(3)" placeholder="検索..."></th>
+          <th>Vd1<br><input type="text" onkeyup="filterTable(4)" placeholder="検索..."></th>
+          <th>Vd2<br><input type="text" onkeyup="filterTable(5)" placeholder="検索..."></th>
+          <th>備考<br></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>091225.1</td>
+          <td>KP0.19のallan分散計測</td>
+          <td>5.2700</td>
+          <td>13.7720</td>
+          <td>3.0000</td>
+          <td>3.0000</td>
+          <td><a href="javascript:void(0);" onclick="showDetails('ここに詳細な情報を記載します。')">詳細</a></td>
+        </tr>
+        <tr>
+          <td>091125.4</td>
+          <td>W/O制御のallan分散計測</td>
+          <td>5.2700</td>
+          <td>13.7720</td>
+          <td>3.0000</td>
+          <td>3.0000</td>
+          <td><a href="javascript:void(0);" onclick="showDetails('ここにW/O制御の詳細情報を記載します。')">詳細</a></td>
+        </tr>
+        <tr>
+          <td>091125.3</td>
+          <td>KP0.20のallan分散計測</td>
+          <td>5.2700</td>
+          <td>13.7720</td>
+          <td>3.0000</td>
+          <td>3.0000</td>
+          <td><a href="javascript:void(0);" onclick="showDetails('ここにKP0.20の詳細情報を記載します。')">詳細</a></td>
+        </tr>
+        <tr>
+          <td>091125.2</td>
+          <td>Vp2,3 Step</td>
+          <td>5.24-5.26 d0.002</td>
+          <td>13.72-13.74 d0.002</td>
+          <td>3.0000</td>
+          <td>3.0000</td>
+          <td><a href="javascript:void(0);" onclick="showDetails('ここにVp2,3 Stepの詳細情報を記載します。')">詳細</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      function filterTable(columnIndex) {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementsByTagName("input")[columnIndex];
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 1; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[columnIndex];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+
+      function showDetails(details) {
+        var newWindow = window.open('', 'Details', 'width=600,height=400');
+        newWindow.document.body.innerHTML = '<h2>詳細</h2><p>' + details + '</p>';
+      }
+    </script>
+</body>
+</html>
