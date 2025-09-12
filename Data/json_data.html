@@ -84,29 +84,29 @@
         <table id="myTable">
             <thead>
                 <tr>
-                    <th>File-name<br><input type="text" onkeyup="filterTable(0)" placeholder="検索..."></th>
-                    <th>内容<br><input type="text" onkeyup="filterTable(1)" placeholder="検索..."></th>
-                    <th>備考<br><!--<input type="text" onkeyup="filterTable(2)" placeholder="検索..."></th>--->
-                    <th>Vd1<br><input type="text" onkeyup="filterTable(3)" placeholder="検索..."></th>
-                    <th>Vd2<br><input type="text" onkeyup="filterTable(4)" placeholder="検索..."></th>
-                    <th>Vd3<br><input type="text" onkeyup="filterTable(5)" placeholder="検索..."></th>
-                    <th>Vd4<br><input type="text" onkeyup="filterTable(6)" placeholder="検索..."></th>
-                    <th>Vp1<br><input type="text" onkeyup="filterTable(7)" placeholder="検索..."></th>
-                    <th>Vp2<br><input type="text" onkeyup="filterTable(8)" placeholder="検索..."></th>
-                    <th>Vp3<br><input type="text" onkeyup="filterTable(9)" placeholder="検索..."></th>
-                    <th>Vp4<br><input type="text" onkeyup="filterTable(10)" placeholder="検索..."></th>
-                    <th>PLL_KP<br><input type="text" onkeyup="filterTable(11)" placeholder="検索..."></th>
-                    <th>PLL_KI<br><input type="text" onkeyup="filterTable(12)" placeholder="検索..."></th>
-                    <th>AGC_KP<br><input type="text" onkeyup="filterTable(13)" placeholder="検索..."></th>
-                    <th>AGC_KI<br><input type="text" onkeyup="filterTable(14)" placeholder="検索..."></th>
-                    <th>PID1_KP<br><input type="text" onkeyup="filterTable(15)" placeholder="検索..."></th>
-                    <th>PID1_KI<br><input type="text" onkeyup="filterTable(16)" placeholder="検索..."></th>
-                    <th>PID2_KP<br><input type="text" onkeyup="filterTable(17)" placeholder="検索..."></th>
-                    <th>PID2_KI<br><input type="text" onkeyup="filterTable(18)" placeholder="検索..."></th>
-                    <th>PID3_KP<br><input type="text" onkeyup="filterTable(19)" placeholder="検索..."></th>
-                    <th>PID3_KI<br><input type="text" onkeyup="filterTable(20)" placeholder="検索..."></th>
-                    <th>PID4_KP<br><input type="text" onkeyup="filterTable(21)" placeholder="検索..."></th>
-                    <th>PID4_KI<br><input type="text" onkeyup="filterTable(22)" placeholder="検索..."></th>
+                    <th>File-name<br><input type="text" onkeyup="filterTable(0)" placeholder="search..."></th>
+                    <th>内容<br><input type="text" onkeyup="filterTable(1)" placeholder="search..."></th>
+                    <th>Note<br><!--<input type="text" onkeyup="filterTable(2)" placeholder="検索..."></th>--->
+                    <th>Vd1<br><input type="text" onkeyup="filterTable(3)" placeholder="search..."></th>
+                    <th>Vd2<br><input type="text" onkeyup="filterTable(4)" placeholder="search..."></th>
+                    <th>Vd3<br><input type="text" onkeyup="filterTable(5)" placeholder="search..."></th>
+                    <th>Vd4<br><input type="text" onkeyup="filterTable(6)" placeholder="search..."></th>
+                    <th>Vp1<br><input type="text" onkeyup="filterTable(7)" placeholder="search..."></th>
+                    <th>Vp2<br><input type="text" onkeyup="filterTable(8)" placeholder="search..."></th>
+                    <th>Vp3<br><input type="text" onkeyup="filterTable(9)" placeholder="search..."></th>
+                    <th>Vp4<br><input type="text" onkeyup="filterTable(10)" placeholder="search..."></th>
+                    <th>PLL_KP<br><input type="text" onkeyup="filterTable(11)" placeholder="search..."></th>
+                    <th>PLL_KI<br><input type="text" onkeyup="filterTable(12)" placeholder="search..."></th>
+                    <th>AGC_KP<br><input type="text" onkeyup="filterTable(13)" placeholder="search..."></th>
+                    <th>AGC_KI<br><input type="text" onkeyup="filterTable(14)" placeholder="search..."></th>
+                    <th>PID1_KP<br><input type="text" onkeyup="filterTable(15)" placeholder="search..."></th>
+                    <th>PID1_KI<br><input type="text" onkeyup="filterTable(16)" placeholder="search..."></th>
+                    <th>PID2_KP<br><input type="text" onkeyup="filterTable(17)" placeholder="search..."></th>
+                    <th>PID2_KI<br><input type="text" onkeyup="filterTable(18)" placeholder="search..."></th>
+                    <th>PID3_KP<br><input type="text" onkeyup="filterTable(19)" placeholder="search..."></th>
+                    <th>PID3_KI<br><input type="text" onkeyup="filterTable(20)" placeholder="search..."></th>
+                    <th>PID4_KP<br><input type="text" onkeyup="filterTable(21)" placeholder="search..."></th>
+                    <th>PID4_KI<br><input type="text" onkeyup="filterTable(22)" placeholder="search..."></th>
                 </tr>
             </thead>
             <tbody id="tableBody">
@@ -292,7 +292,7 @@
                 const rowData = [
                     item.file_name,
                     item.内容,
-                    `<a href="javascript:void(0);" onclick="showDetails('${item.備考}')">詳細</a>`,
+                    `<a href="javascript:void(0);" onclick="showDetails('${item.備考}')">Details...</a>`,
                     item.Vd1,
                     item.Vd2,
                     item.Vd3,
@@ -352,7 +352,7 @@
 
         function showDetails(details) {
             var newWindow = window.open('', 'Details', 'width=600,height=400');
-            newWindow.document.body.innerHTML = '<h2>詳細</h2><p>' + details + '</p>';
+            newWindow.document.body.innerHTML = '<h2>Note</h2><p>' + details + '</p>';
         }
     </script>
 </body>
