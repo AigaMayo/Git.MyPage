@@ -3,123 +3,459 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>実験データリスト（中央揃え）</title>
+    <title>実験データリスト（先頭列固定）</title>
     <style>
-      /* 罫線とパディングのスタイル */
-      table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-      }
-      th, td {
-        padding: 8px;
-        text-align: left;
-      }
-      /* 検索ボックスのスタイル */
-      th input {
-        width: 90%;
-        box-sizing: border-box;
-        margin-top: 5px;
-      }
-      
-      /* 中央揃えのスタイル */
-      th, td:nth-of-type(1), td:nth-of-type(3), td:nth-of-type(4), td:nth-of-type(5), td:nth-of-type(6) {
-        text-align: center;
-      }
-
-    /* 行の高さ調整 */
-    /* 見出し行の高さ調整 */
-    th {
-        padding-top: 4px;
-        padding-bottom: 4px;
-    }
-
-    /* データ行の高さ調整 */
-    td {
-        padding-top: 4px;
-        padding-bottom: 4px;
-    }
-
+        /* 表を囲むコンテナのスタイル */
+        .table-container {
+            overflow-x: auto; /* 水平スクロールを有効にする */
+            max-width: 100%;
+        }
+        /* 表の基本スタイル */
+        table {
+            table-layout: auto;
+            width: max-content;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            white-space: nowrap; /* テキストの折り返しを防ぐ */
+        }
+        /* 検索ボックスのスタイル */
+        th input {
+            width: 90%;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+        /* 中央揃えのスタイル */
+        th, 
+        td:nth-of-type(1), /* File-name */
+        td:nth-of-type(4), /* Vd1 */
+        td:nth-of-type(5), /* Vd2 */
+        td:nth-of-type(6), /* Vd3 */
+        td:nth-of-type(7), /* Vd4 */
+        td:nth-of-type(8), /* Vp1 */
+        td:nth-of-type(9), /* Vp2 */
+        td:nth-of-type(10), /* Vp3 */
+        td:nth-of-type(11), /* Vp4 */
+        td:nth-of-type(12), /* PLL_KP */
+        td:nth-of-type(13), /* PLL_KI */
+        td:nth-of-type(14), /* AGC_KP */
+        td:nth-of-type(15), /* AGC_KI */
+        td:nth-of-type(16), /* PID1_KP */
+        td:nth-of-type(17), /* PID1_KI */
+        td:nth-of-type(18), /* PID2_KP */
+        td:nth-of-type(19), /* PID2_KI */
+        td:nth-of-type(20), /* PID3_KP */
+        td:nth-of-type(21), /* PID3_KI */
+        td:nth-of-type(22), /* PID4_KP */
+        td:nth-of-type(23) { /* PID4_KI */
+            text-align: center;
+        }
+        
+        /* 先頭列を固定するスタイル */
+        th:first-child, td:first-child {
+            position: sticky; /* スクロールに合わせて固定する */
+            left: 0; /* 左端に固定する */
+            background-color: #f2f2f2; /* 見やすくするために背景色を設定 */
+            z-index: 10; /* 他の要素より手前に表示 */
+        }
+        
     </style>
 </head>
 <body>
     <h1>実験データリスト</h1>
-    <table id="myTable">
-      <thead>
-        <tr>
-          <th>File-name<br><input type="text" onkeyup="filterTable(0)" placeholder="検索..."></th>
-          <th>内容<br><input type="text" onkeyup="filterTable(1)" placeholder="検索..."></th>
-          <th>Vp2<br><input type="text" onkeyup="filterTable(2)" placeholder="検索..."></th>
-          <th>Vp3<br><input type="text" onkeyup="filterTable(3)" placeholder="検索..."></th>
-          <th>Vd1<br><input type="text" onkeyup="filterTable(4)" placeholder="検索..."></th>
-          <th>Vd2<br><input type="text" onkeyup="filterTable(5)" placeholder="検索..."></th>
-          <th>備考<br></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>091225.1</td>
-          <td>KP0.19のallan分散計測</td>
-          <td>5.2700</td>
-          <td>13.7720</td>
-          <td>3.0000</td>
-          <td>3.0000</td>
-          <td><a href="javascript:void(0);" onclick="showDetails('ここに詳細な情報を記載します。')">詳細</a></td>
-        </tr>
-        <tr>
-          <td>091125.4</td>
-          <td>W/O制御のallan分散計測</td>
-          <td>5.2700</td>
-          <td>13.7720</td>
-          <td>3.0000</td>
-          <td>3.0000</td>
-          <td><a href="javascript:void(0);" onclick="showDetails('ここにW/O制御の詳細情報を記載します。')">詳細</a></td>
-        </tr>
-        <tr>
-          <td>091125.3</td>
-          <td>KP0.20のallan分散計測</td>
-          <td>5.2700</td>
-          <td>13.7720</td>
-          <td>3.0000</td>
-          <td>3.0000</td>
-          <td><a href="javascript:void(0);" onclick="showDetails('ここにKP0.20の詳細情報を記載します。')">詳細</a></td>
-        </tr>
-        <tr>
-          <td>091125.2</td>
-          <td>Vp2,3 Step</td>
-          <td>5.24-5.26 d0.002</td>
-          <td>13.72-13.74 d0.002</td>
-          <td>3.0000</td>
-          <td>3.0000</td>
-          <td><a href="javascript:void(0);" onclick="showDetails('ここにVp2,3 Stepの詳細情報を記載します。')">詳細</a></td>
-        </tr>
-      </tbody>
-    </table>
+
+    <div class="table-container">
+        <table id="myTable">
+            <thead>
+                <tr>
+                    <th>File-name<br><input type="text" onkeyup="filterTable(0)" placeholder="検索..."></th>
+                    <th>内容<br><input type="text" onkeyup="filterTable(1)" placeholder="検索..."></th>
+                    <th>備考</th>
+                    <th>Vd1<br><input type="text" onkeyup="filterTable(3)" placeholder="検索..."></th>
+                    <th>Vd2<br><input type="text" onkeyup="filterTable(4)" placeholder="検索..."></th>
+                    <th>Vd3<br><input type="text" onkeyup="filterTable(5)" placeholder="検索..."></th>
+                    <th>Vd4<br><input type="text" onkeyup="filterTable(6)" placeholder="検索..."></th>
+                    <th>Vp1<br><input type="text" onkeyup="filterTable(7)" placeholder="検索..."></th>
+                    <th>Vp2<br><input type="text" onkeyup="filterTable(8)" placeholder="検索..."></th>
+                    <th>Vp3<br><input type="text" onkeyup="filterTable(9)" placeholder="検索..."></th>
+                    <th>Vp4<br><input type="text" onkeyup="filterTable(10)" placeholder="検索..."></th>
+                    <th>PLL_KP<br><input type="text" onkeyup="filterTable(11)" placeholder="検索..."></th>
+                    <th>PLL_KI<br><input type="text" onkeyup="filterTable(12)" placeholder="検索..."></th>
+                    <th>AGC_KP<br><input type="text" onkeyup="filterTable(13)" placeholder="検索..."></th>
+                    <th>AGC_KI<br><input type="text" onkeyup="filterTable(14)" placeholder="検索..."></th>
+                    <th>PID1_KP<br><input type="text" onkeyup="filterTable(15)" placeholder="検索..."></th>
+                    <th>PID1_KI<br><input type="text" onkeyup="filterTable(16)" placeholder="検索..."></th>
+                    <th>PID2_KP<br><input type="text" onkeyup="filterTable(17)" placeholder="検索..."></th>
+                    <th>PID2_KI<br><input type="text" onkeyup="filterTable(18)" placeholder="検索..."></th>
+                    <th>PID3_KP<br><input type="text" onkeyup="filterTable(19)" placeholder="検索..."></th>
+                    <th>PID3_KI<br><input type="text" onkeyup="filterTable(20)" placeholder="検索..."></th>
+                    <th>PID4_KP<br><input type="text" onkeyup="filterTable(21)" placeholder="検索..."></th>
+                    <th>PID4_KI<br><input type="text" onkeyup="filterTable(22)" placeholder="検索..."></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>091225.1</td>
+                    <td>KP0.19のallan分散計測</td>
+                    <td><a href="javascript:void(0);" onclick="showDetails('ここに詳細な情報を記載します。')">詳細</a></td>
+                    <td>3.0000</td>
+                    <td>3.0000</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>5.2700</td>
+                    <td>13.7720</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>091125.4</td>
+                    <td>W/O制御のallan分散計測</td>
+                    <td><a href="javascript:void(0);" onclick="showDetails('ここにW/O制御の詳細情報を記載します。')">詳細</a></td>
+                    <td>3.0000</td>
+                    <td>3.0000</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>5.2700</td>
+                    <td>13.7720</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>091125.3</td>
+                    <td>KP0.20のallan分散計測</td>
+                    <td><a href="javascript:void(0);" onclick="showDetails('ここにKP0.20の詳細情報を記載します。')">詳細</a></td>
+                    <td>3.0000</td>
+                    <td>3.0000</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>5.2700</td>
+                    <td>13.7720</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>091125.2</td>
+                    <td>Vp2,3 Step CCW</td>
+                    <td><a href="javascript:void(0);" onclick="showDetails('ここにVp2,3 Stepの詳細情報を記載します。')">詳細</a></td>
+                    <td>3.0000</td>
+                    <td>3.0000</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>5.24-5.26 d0.002</td>
+                    <td>13.72-13.74 d0.002</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>091125.1</td>
+                    <td>Vp2,3 Step CW</td>
+                    <td><a href="javascript:void(0);" onclick="showDetails('ここにVp2,3 Stepの詳細情報を記載します。')">詳細</a></td>
+                    <td>3.0000</td>
+                    <td>3.0000</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>5.24-5.26 d0.002</td>
+                    <td>13.72-13.74 d0.002</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>091025.d</td>
+                    <td>Vp2,3 Step CCW</td>
+                    <td><a href="javascript:void(0);" onclick="showDetails('ここにVp2,3 Stepの詳細情報を記載します。')">詳細</a></td>
+                    <td>3.0000</td>
+                    <td>3.0000</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>5.24-5.26 d0.002</td>
+                    <td>13.702-13.718 d0.002</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>091025.c</td>
+                    <td>Vp2,3 Step CW</td>
+                    <td><a href="javascript:void(0);" onclick="showDetails('ここにVp2,3 Stepの詳細情報を記載します。')">詳細</a></td>
+                    <td>3.0000</td>
+                    <td>3.0000</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>5.24-5.26 d0.002</td>
+                    <td>13.702-13.718 d0.002</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>091025.b</td>
+                    <td>Vp2,3 Step CCW</td>
+                    <td><a href="javascript:void(0);" onclick="showDetails('ここにVp2,3 Stepの詳細情報を記載します。')">詳細</a></td>
+                    <td>3.0000</td>
+                    <td>3.0000</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>5.21-5.27 d0.01</td>
+                    <td>13.72-13.78 d0.01</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>091025.a</td>
+                    <td>Vp2,3 Step CW</td>
+                    <td><a href="javascript:void(0);" onclick="showDetails('ここにVp2,3 Stepの詳細情報を記載します。')">詳細</a></td>
+                    <td>3.0000</td>
+                    <td>3.0000</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>5.21-5.27 d0.01</td>
+                    <td>13.72-13.78 d0.01</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>091025.9</td>
+                    <td>Vp2,3 Step CCW</td>
+                    <td><a href="javascript:void(0);" onclick="showDetails('ここにVp2,3 Stepの詳細情報を記載します。')">詳細</a></td>
+                    <td>3.0000</td>
+                    <td>3.0000</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>5.21-5.27 d0.01</td>
+                    <td>13.66-13.71 d0.01</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>091025.7</td>
+                    <td>Vp2,3 Step CW</td>
+                    <td><a href="javascript:void(0);" onclick="showDetails('ここにVp2,3 Stepの詳細情報を記載します。')">詳細</a></td>
+                    <td>3.0000</td>
+                    <td>3.0000</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>5.21-5.27 d0.01</td>
+                    <td>13.66-13.71 d0.01</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>091025.5</td>
+                    <td>Vp2,3 Step CCW</td>
+                    <td><a href="javascript:void(0);" onclick="showDetails('ここにVp2,3 Stepの詳細情報を記載します。')">詳細</a></td>
+                    <td>3.0000</td>
+                    <td>3.0000</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>5.235-5.255 d0.001</td>
+                    <td>13.704-13.706 d0.001</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>091025.3</td>
+                    <td>Vp2,3 Step CW</td>
+                    <td><a href="javascript:void(0);" onclick="showDetails('ここにVp2,3 Stepの詳細情報を記載します。')">詳細</a></td>
+                    <td>3.0000</td>
+                    <td>3.0000</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>5.235-5.255 d0.001</td>
+                    <td>13.704-13.706 d0.001</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <script>
-      function filterTable(columnIndex) {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementsByTagName("input")[columnIndex];
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
-
-        for (i = 1; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td")[columnIndex];
-          if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-            } else {
-              tr[i].style.display = "none";
+        function filterTable(columnIndex) {
+            var input, filter, table, tr, td, i, txtValue;
+            // 検索ボックスがなくなっても列番号がずれないように、input要素のインデックスを調整する
+            var inputIndex = columnIndex;
+            if (columnIndex > 1) { // 備考列の検索ボックスが無くなったため、それ以降の列のインデックスがずれる
+                inputIndex = columnIndex - 1;
             }
-          }
-        }
-      }
+            
+            input = document.getElementsByTagName("input")[inputIndex];
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
 
-      function showDetails(details) {
-        var newWindow = window.open('', 'Details', 'width=600,height=400');
-        newWindow.document.body.innerHTML = '<h2>詳細</h2><p>' + details + '</p>';
-      }
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[columnIndex];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function showDetails(details) {
+            var newWindow = window.open('', 'Details', 'width=600,height=400');
+            newWindow.document.body.innerHTML = '<h2>詳細</h2><p>' + details + '</p>';
+        }
     </script>
 </body>
 </html>
