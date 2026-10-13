@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Googleカレンダー埋め込み（複数表示）</title>
+    <title>Googleカレンダー埋め込み（複数・週表示・縦長）</title>
     <style>
         /* カレンダーを中央寄せにし、スマホ幅でもはみ出さないように設定 */
         .calendar-container {
@@ -11,10 +11,10 @@
             margin: 20px auto;
             padding: 0 10px;
         }
-        /* レスポンシブ対応：画面幅に合わせて中身のiframeを伸縮させる */
+        /* レスポンシブ対応：縦長にするために高さを広めに設定 (130%などにお好みで変更可能) */
         .calendar-wrapper {
             position: relative;
-            padding-bottom: 75%; /* 4:3の比率 */
+            padding-bottom: 130%; /* 数値が大きいほど縦長になります */
             height: 0;
             overflow: hidden;
         }
@@ -31,16 +31,11 @@
 <body>
 
     <div class="calendar-container">
-        <h2>イベントスケジュール</h2>
+        <h2>calendar</h2>
         
         <!-- カレンダー埋め込み部分 -->
         <div class="calendar-wrapper">
-            <!-- 
-              複数のカレンダーをまとめる場合：
-              1つの「src=カレンダーID」の後ろに「&amp;src=2つ目のカレンダーID」を次々につなげていきます。
-              ※「@」が含まれるカレンダーID（通常Gmailアドレスなど）は「%40」に置き換えて指定すると確実です。
-            -->
-            <iframe src="https://calendar.google.com/calendar/embed?src=multiple.system.manager%40gmail.com&amp;src=ogura.kai.s3%40gmail.com&amp;ctz=Asia%2FTokyo" scrolling="no"></iframe>
+            <iframe src="https://calendar.google.com/calendar/embed?src=multiple.system.manager%40gmail.com&amp;src=ogura.kai.s3%40gmail.com&amp;src=ogura.kai.s3%40dc.tohoku.ac.jp&amp;ctz=Asia%2FTokyo&amp;mode=WEEK" scrolling="no"></iframe>
         </div>
     </div>
 
