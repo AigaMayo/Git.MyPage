@@ -1,464 +1,220 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kai Ogura — Portfolio</title>
+<meta name="description" content="小倉 可維のポートフォリオ。MEMSジャイロスコープ、宇宙開発、ものづくりの活動記録。">
+<style>
+:root{--bg:#111410;--panel:#1b2019;--ink:#f0f2e9;--muted:#a8b09f;--line:#ffffff20;--accent:#d4f878}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,"Yu Gothic",Meiryo,sans-serif;line-height:1.8}a{color:inherit;text-decoration:none}button,input{font:inherit}button,a,input{ -webkit-tap-highlight-color:transparent}button{cursor:pointer}a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:6px}::selection{background:var(--accent);color:var(--bg)}.wrap{width:min(1280px,88%);margin:auto}.skip{position:fixed;top:-100px;background:var(--accent);color:#111;padding:12px;z-index:100}.skip:focus{top:10px}.progress{height:3px;background:var(--accent);position:fixed;top:0;left:0;z-index:50;width:0}header{position:fixed;top:0;width:100%;z-index:20;background:#111410d9;backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.header-inner{height:86px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:22px;font-weight:800;letter-spacing:-1px}.brand i{color:var(--accent);font-style:normal}nav{display:flex;gap:32px;font-size:12px;letter-spacing:1px}nav a{color:var(--muted)}nav a:hover,nav a.active{color:var(--accent)}.menu{display:none;background:transparent;color:var(--ink);border:1px solid var(--line);padding:6px 14px}.hero{min-height:850px;min-height:100svh;position:relative;overflow:hidden;padding:170px 0 70px;display:flex;align-items:center}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#111410 1%,#111410dd 35%,#11141025 100%),linear-gradient(0deg,#111410,transparent 55%),url('images/index.galler/nse24sea.JPG') center/cover;opacity:.65}.hero:after{content:"";position:absolute;width:620px;height:620px;border:1px solid #d4f87826;border-radius:50%;right:-90px;top:130px;pointer-events:none;animation:orbit 28s linear infinite;box-shadow:0 0 100px #d4f87808,inset 0 0 100px #d4f87808}.hero-content{position:relative;z-index:1;width:100%}.eyebrow{font-size:11px;letter-spacing:2.5px;color:var(--accent);display:flex;align-items:center;gap:12px}.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 16px #d4f87880}.hero h1{font-size:clamp(64px,9.5vw,142px);line-height:.99;letter-spacing:-.065em;margin:35px 0}.hero h1 em{font-style:normal;color:var(--accent)}.hero-copy{color:#c1c8ba;font-size:14px;line-height:2.2;margin:30px 0}.actions{display:flex;gap:25px;align-items:center;margin-top:35px}.pill{display:inline-flex;align-items:center;gap:36px;border-radius:40px;background:var(--accent);color:#192014;padding:14px 25px;font-size:12px;font-weight:bold;transition:transform .2s}.pill:hover{transform:translateY(-4px)}.text-link{font-size:12px;border-bottom:1px solid var(--line);padding:12px 0}.hero-bottom{display:flex;justify-content:space-between;align-items:end;margin-top:65px;font-size:10px;letter-spacing:2px;color:var(--muted)}.coordinates{text-align:right}.ticker{overflow:hidden;border-block:1px solid var(--line);padding:21px 0;color:var(--muted);font-size:12px;letter-spacing:3px}.ticker-track{display:flex;gap:45px;width:max-content;animation:marquee 35s linear infinite}.ticker b{color:var(--accent)}section.content{padding:115px 0;border-bottom:1px solid var(--line)}.section-heading{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:48px}.section-heading h2{font-size:clamp(38px,5vw,65px);letter-spacing:-3px;line-height:1.1;margin:16px 0 0}.section-heading p{color:var(--muted);font-size:12px}.number{color:var(--accent);font-size:11px;letter-spacing:2px}.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px}.portrait{position:relative;border-radius:3px;overflow:hidden;height:410px}.portrait img{width:100%;height:100%;object-fit:cover}.portrait-label{position:absolute;bottom:0;left:0;right:0;padding:25px;background:linear-gradient(transparent,#000b);font-size:11px;letter-spacing:2px}.about-copy h3{font-size:30px;margin:0 0 4px}.about-copy p{font-size:14px;color:var(--muted)}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}.tags span{border:1px solid var(--line);border-radius:25px;padding:6px 13px;font-size:10px;color:var(--muted)}.mini-title{font-size:11px;letter-spacing:2px;color:var(--accent);margin:45px 0 18px}.research{padding:22px 0;border-top:1px solid var(--line);font-size:14px}.research small{display:block;color:var(--muted);font-size:11px}.history{margin-top:60px}details{border-top:1px solid var(--line);padding:21px 0}summary{cursor:pointer;list-style:none;font-size:13px;display:flex;justify-content:space-between;gap:20px}summary::-webkit-details-marker{display:none}summary:after{content:'+';color:var(--accent);font-size:20px;line-height:1}details[open] summary:after{content:'−'}details ul{color:var(--muted);font-size:13px;line-height:2.2;padding-left:22px}.news-tools{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:22px}.news-tools input{background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:30px;padding:11px 18px;width:min(320px,100%);font-size:12px}.news-tools span{font-size:11px;color:var(--muted)}.news-row{display:grid;grid-template-columns:185px 1fr;gap:24px;border-top:1px solid var(--line);padding:27px 0;font-size:13px;color:#c7cdbe}.news-date{font-size:12px;color:var(--ink)}.news-date span{display:block;color:var(--accent);font-size:10px;margin-top:7px}.news-row a{color:var(--accent);border-bottom:1px solid #d4f87860}.empty{color:var(--muted);padding:20px 0}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.photo{position:relative;aspect-ratio:4/3;background:var(--panel);border:0;padding:0;overflow:hidden;text-align:left;color:white;border-radius:3px}.photo:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}.photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s,filter .7s;filter:saturate(.65)}.photo:hover img{transform:scale(1.06);filter:saturate(1)}.photo span{position:absolute;bottom:0;left:0;right:0;padding:40px 20px 20px;background:linear-gradient(transparent,#000c);font-size:10px;line-height:1.7}.photo b{position:absolute;right:15px;top:15px;background:#1118;border-radius:50%;width:30px;height:30px;text-align:center;font-weight:normal}.closing{padding:85px 0}.closing h2{font-size:clamp(40px,6vw,78px);line-height:1.15;letter-spacing:-3px;margin:20px 0 30px}.closing h2 span{color:var(--accent)}footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:10px}.footer-inner{display:flex;justify-content:space-between;gap:20px}dialog{background:#141811;color:var(--ink);border:1px solid var(--line);padding:55px 18px 18px;width:min(1100px,94vw);max-height:94vh}dialog::backdrop{background:#000d;backdrop-filter:blur(10px)}dialog img{display:block;max-width:100%;max-height:70vh;object-fit:contain;margin:auto}dialog p{font-size:12px;color:var(--muted)}.close{position:absolute;top:10px;right:16px;background:transparent;border:0;color:white;font-size:25px}.js .reveal{opacity:0;transform:translateY(25px);transition:opacity .8s,transform .8s}.js .reveal.visible{opacity:1;transform:none}[hidden]{display:none!important}@keyframes marquee{to{transform:translateX(-50%)}}@keyframes orbit{to{transform:rotate(360deg)}}@media(min-width:900px){.hero:after{border-style:dashed}}@media(max-width:760px){.wrap{width:88%}.header-inner{height:70px}.brand{font-size:20px}.menu{display:block}nav{display:none;position:absolute;left:0;right:0;top:70px;background:#171c15;padding:28px 6%;flex-direction:column;gap:22px;border-bottom:1px solid var(--line)}nav.open{display:flex}.hero{padding-top:135px;min-height:820px;min-height:100svh}.hero h1{font-size:clamp(65px,13vw,96px)}.hero:before{background:linear-gradient(90deg,#111410dd,#11141055),linear-gradient(0deg,#111410,transparent),url('images/index.galler/nse24sea.JPG') center/cover}.hero-copy{font-size:12px}.coordinates{display:none}.hero-bottom{margin-top:50px}.section-heading{align-items:start;flex-direction:column;margin-bottom:32px}.section-heading h2{letter-spacing:-2px}.section-heading p{margin:0}.about-grid{grid-template-columns:1fr;gap:30px}.portrait{height:330px}.news-row{grid-template-columns:1fr;gap:12px}.news-date span{display:inline-block;margin:0 0 0 15px}.gallery{grid-template-columns:repeat(2,1fr);gap:12px}.photo:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:4/3}.photo span{font-size:9px;padding:30px 12px 12px}.content{padding:75px 0!important}.footer-inner{flex-direction:column;gap:8px}.news-tools{align-items:start;flex-direction:column}.actions{gap:20px}.eyebrow{font-size:9px;letter-spacing:1.6px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.js .reveal{opacity:1;transform:none}}
+/* Light, quiet editorial theme */
+:root{--bg:#fafbf8;--panel:#edf2ec;--ink:#31463e;--muted:#65756c;--line:#31463e22;--accent:#547b6c}
+body{font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;line-height:1.95}
+.wrap{width:min(1160px,86%)}
+header{background:#fafbf8e8;border-color:#31463e12}.header-inner{height:82px}.brand{font-size:21px;font-weight:600;letter-spacing:.3px}nav{font-size:11px;letter-spacing:1.4px}.progress{height:2px;background:#95b5a6}::selection{background:#d9e8df;color:var(--ink)}
+.hero{min-height:760px;min-height:92svh;padding:165px 0 75px;background:linear-gradient(135deg,#f8faf5,#f2f6f1 65%,#e9f0ea)}
+.hero:before{inset:125px 0 70px 53%;border-radius:180px 0 0 12px;background:linear-gradient(0deg,#e4eee82b,#ffffff20),url('images/index.galler/nse24sea.JPG') center/cover;opacity:.85}
+.hero:after{display:none}.hero-content{position:relative}.eyebrow{font-size:10px;font-weight:500;letter-spacing:2px}.dot{width:5px;height:5px;box-shadow:none;background:#87a895}
+.hero h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(42px,5vw,70px);font-weight:400;line-height:1.7;letter-spacing:.07em;margin:28px 0 20px}.hero h1 em{font-style:normal;color:var(--accent)}.hero-copy{color:var(--muted);font-size:13px;line-height:2.4;max-width:47%}.actions{margin-top:30px;gap:28px}.pill{background:#587c6d;color:#fff;padding:12px 24px;font-size:11px;font-weight:500;gap:30px;box-shadow:0 6px 20px #547b6c12}.pill:hover{transform:translateY(-2px);background:#456757}.text-link{font-size:11px;color:var(--accent)}.hero-bottom{font-size:9px;letter-spacing:1.6px;margin-top:55px}.coordinates{background:#fafbf8d9;padding:10px 16px;border-radius:6px}
+.ticker{padding:20px 0;background:#f4f7f1;border-color:#31463e12;font-size:10px;letter-spacing:2px}.ticker-track{animation:none;width:auto;justify-content:center;gap:35px;flex-wrap:wrap}.ticker-track>:nth-child(n+9){display:none}.ticker b{font-weight:400;color:#96afa0}
+section.content{padding:100px 0}.section-heading h2{font-family:Georgia,"Yu Mincho",serif;font-size:clamp(36px,4.3vw,53px);font-weight:400;line-height:1.25;letter-spacing:0;margin-top:18px}.number{font-size:10px;letter-spacing:2px}.section-heading p{line-height:2}.about-grid{gap:65px}.portrait{border-radius:90px 8px 8px 8px;height:420px}.portrait img{filter:saturate(.75)}.portrait-label{color:#fff;font-size:10px;letter-spacing:1.5px}.about-copy h3{font-size:26px;font-weight:500;letter-spacing:.15em}.about-copy p{font-size:13px;line-height:2.2}.tags span{background:#f0f4ed;border:0;color:#5c7466;padding:5px 13px}.mini-title{font-size:10px;letter-spacing:1.5px}.research{font-size:13px;padding:18px 0}.research small{margin-top:2px}summary{font-size:12px;line-height:1.9}summary:after{color:#779782}details{padding:22px 0}details ul{font-size:12px}.history{margin-top:65px}
+.news-tools input{background:white;border-radius:7px;font-size:12px}.news-row{font-size:12px;color:#53665c;padding:28px 0}.news-date{font-size:12px}.news-date span{color:#587c6d}.news-row a{color:#3f725e;border-color:#8eae9d}.news-tools span{font-size:10px}
+.gallery{gap:20px}.photo{border-radius:9px}.photo:first-child{border-radius:50px 9px 9px 9px}.photo img{filter:saturate(.8);transition:transform .8s,filter .8s}.photo:hover img{transform:scale(1.025)}.photo span{padding-top:55px;background:linear-gradient(transparent,#1b3028b8);font-size:10px}.photo b{background:#fafbf8e8;color:#496653}
+.closing{padding:85px 0 95px;text-align:center}.closing h2{font-family:"Yu Mincho",serif;font-weight:400;font-size:clamp(30px,4.5vw,48px);line-height:1.9;letter-spacing:.12em;margin:20px 0}.closing .number{font-size:9px}footer{background:#f0f4ee;border-color:#31463e12;font-size:10px;padding:28px 0}.footer-inner{align-items:center}dialog{background:#fafbf8;color:var(--ink);border-radius:12px;border:0;box-shadow:0 20px 100px #152a3433}dialog::backdrop{background:#23372e99;backdrop-filter:blur(7px)}.close{color:var(--ink)}.js .reveal{transform:translateY(12px);transition:opacity 1s,transform 1s}.js .reveal.visible{transform:none}
+@media(max-width:760px){.wrap{width:86%}.header-inner{height:70px}nav{background:#fafbf8;top:70px}.menu{font-size:11px;border-radius:6px}.hero{min-height:auto;padding:125px 0 40px;display:block}.hero:before{inset:auto 0 0 25%;height:250px;border-radius:110px 0 0 0;opacity:.8;background:linear-gradient(0deg,#f2f6f120,#f2f6f120),url('images/index.galler/nse24sea.JPG') center/cover}.hero h1{font-size:clamp(35px,7.6vw,52px);line-height:1.8;letter-spacing:.05em;margin-top:25px}.hero-copy{max-width:100%;font-size:12px}.hero .actions{margin-bottom:270px}.hero-bottom{margin-top:0;color:#405b4e}.hero-bottom>span:first-child{background:#fafbf8dd;padding:6px 10px;border-radius:4px}.eyebrow{font-size:9px;letter-spacing:1.4px}.ticker-track{gap:12px 22px;font-size:8px}.ticker{padding:17px 5%}.section-heading h2{font-size:37px;letter-spacing:0}.about-grid{gap:30px}.portrait{height:340px;border-radius:65px 8px 8px 8px}.about-copy h3{font-size:24px}.gallery{gap:12px}.photo span{font-size:9px}.closing h2{letter-spacing:.06em}.footer-inner{align-items:start}.closing{padding:65px 0}}
+@media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
+.header-controls{display:flex;align-items:center;gap:16px;order:3}.language-switch{display:flex;align-items:center;gap:8px;font-size:10px;white-space:nowrap;color:var(--muted)}.language-switch button{border:0;background:transparent;color:var(--muted);padding:8px 3px;font-size:11px}.language-switch button[aria-pressed="true"]{color:var(--ink);text-decoration:underline;text-underline-offset:6px}.header-inner{gap:25px}.header-inner nav{margin-left:auto}.hero h1:lang(en){font-family:Georgia,serif;letter-spacing:-.025em;font-size:clamp(38px,4.5vw,66px);line-height:1.4}.hero-copy:lang(en){line-height:2.1}@media(max-width:760px){.header-controls{gap:14px}.header-inner{gap:12px}.language-switch{gap:4px}.language-switch button{font-size:10px}.hero h1:lang(en){font-size:clamp(31px,7.4vw,48px)}.hero-copy:lang(en){font-size:12px}.brand{font-size:18px}}
+/* x2: factual profile and a separately labeled personal perspective */
+.hero{min-height:0;padding:145px 0 65px;background:var(--bg)}
+.hero:before,.hero:after{display:none}.hero-content{max-width:1160px}
+.hero-name{margin-top:28px;font-size:32px;letter-spacing:.12em;font-weight:500}.hero-name>span{display:inline-block;margin-left:20px;font-size:15px;letter-spacing:.04em;color:var(--muted)}
+.hero h1,.hero h1:lang(en){font-family:inherit;font-size:clamp(29px,3.5vw,44px);font-weight:500;line-height:1.7;letter-spacing:.03em;margin:28px 0 20px}.hero h1 em{font-style:normal}
+.hero-copy{max-width:650px;font-size:14px}.hero-bottom{margin-top:40px}.coordinates{background:none;padding:0}.hero-bottom>span:first-child{background:none;padding:0}
+section.content{padding:80px 0}.section-heading h2{font-family:inherit;font-size:36px;letter-spacing:.02em}.portrait{border-radius:8px;height:380px}.about-grid{gap:48px}.about-copy h3{font-size:25px}.tags span{border-radius:4px}.portrait img{filter:none}
+.perspective{display:grid;grid-template-columns:1fr 1.1fr;gap:55px;margin-top:65px;padding:40px;background:#f0f4ee;border:1px solid var(--line);border-radius:8px}.perspective h3{font-size:21px;line-height:1.8;font-weight:500;margin:16px 0}.perspective-intro p{font-size:13px;line-height:2.2;color:var(--muted)}.self-analysis{margin:0;min-width:0}.self-analysis figcaption{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:16px}.assessment-label{font-size:10px;padding:3px 9px;border:1px solid var(--line);white-space:nowrap;border-radius:4px;color:var(--muted)}
+.composition-bar{display:flex;width:100%;height:26px;gap:3px;margin:23px 0 20px;overflow:hidden;border-radius:4px}.composition-bar>span{flex:0 1 var(--share);background:var(--tone)}.trait-list{list-style:none;padding:0;margin:0}.trait-list li{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}.trait-label{display:flex;align-items:center;gap:10px}.trait-label i{display:block;width:9px;height:9px;flex-shrink:0;border-radius:2px;background:var(--tone)}.trait-list strong{font-size:17px;font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}.trait-list small{font-size:10px;margin-left:3px}.chart-note{font-size:11px;line-height:1.9;color:var(--muted);margin:18px 0 0}.page-end{text-align:right;padding:35px 0 45px}.history{margin-top:55px}
+@media(max-width:760px){.hero{padding:115px 0 40px}.hero-name{font-size:27px}.hero-name>span{font-size:13px;margin-left:10px}.hero h1,.hero h1:lang(en){font-size:clamp(25px,6vw,36px);letter-spacing:0}.hero-copy{font-size:13px;max-width:100%}.hero .actions{margin-bottom:0;flex-wrap:wrap}.hero-bottom{margin-top:35px;font-size:8px;letter-spacing:1px}.perspective{grid-template-columns:1fr;padding:24px 20px;gap:26px;margin-top:40px}.perspective h3{font-size:19px}.section-heading h2{font-size:30px}.portrait{height:320px}.trait-list li{font-size:11px}.composition-bar{gap:2px}.self-analysis figcaption{font-size:15px}}
+/* An illustrated introduction: personal outlook beside a factual record. */
+.hero{padding:135px 0 65px}.hero-content{display:grid;grid-template-columns:.9fr 1.1fr;gap:35px;align-items:center}.hero-intro{min-width:0}.hero-name{font-size:21px;margin-top:25px}.hero-name>span{font-size:12px;margin-left:10px}.hero h1,.hero h1:lang(en){font-size:clamp(26px,3vw,41px);line-height:1.85;margin:22px 0}.hero-copy{font-size:13px;max-width:380px}.hero .actions{gap:20px;flex-wrap:wrap}.hero .pill{padding:11px 18px;gap:20px}.hero-bottom{margin-top:30px;font-size:8px;letter-spacing:1px}.hero-bottom .coordinates{display:none}
+.hero-mind{margin:0;min-width:0;padding:24px 0 12px}.hero-mind figcaption{display:flex;align-items:center;gap:15px;font-size:13px;font-weight:500}.mind-diagram{display:block;width:100%;height:auto;margin-top:20px;overflow:visible}.mind-percent{font-family:Arial,sans-serif;font-size:32px;font-weight:500}.mind-unit{font-size:16px}.mind-trait{font-size:15px;fill:var(--ink);font-family:"Yu Gothic",Meiryo,sans-serif}.hero-mind .chart-note{margin:8px 0 0;font-size:10px;max-width:430px}.mind-mobile{display:none}.mind-readable{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.perspective{display:block;padding:30px 35px}.perspective-intro{max-width:750px}.perspective h3{margin-top:10px}.perspective-intro p{margin-bottom:0}
+@media(max-width:900px){.hero-content{grid-template-columns:1fr;gap:20px}.hero{padding-top:115px}.hero h1,.hero h1:lang(en){font-size:clamp(29px,5vw,42px)}.hero-copy{max-width:100%}.hero-mind{max-width:620px;width:100%;margin:0 auto}.hero-bottom{margin-top:24px}.mind-diagram{margin-top:10px}.hero-mind figcaption{font-size:14px}}
+@media(max-width:480px){.mind-diagram{display:none}.mind-mobile{display:block;width:170px;height:auto;margin:20px auto 15px}.mind-readable{position:static;width:auto;height:auto;overflow:visible;clip-path:none}.hero-mind .trait-list li{font-size:12px;padding:7px 0}.hero-mind .trait-list strong{font-size:21px}.hero-mind .chart-note{font-size:10px;margin-top:14px}.hero h1,.hero h1:lang(en){font-size:clamp(25px,6.7vw,32px)}.hero .actions{gap:15px}.perspective{padding:24px}.hero-mind{padding-top:15px}}
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#main"><span data-ja="本文へ移動" data-en="Skip to content">Skip to content</span></a><div class="progress" aria-hidden="true"></div>
+<header><div class="wrap header-inner"><a class="brand" href="#top">Kai Ogura<i>.</i></a><div class="header-controls"><div class="language-switch" role="group" aria-label="Language / 言語"><button type="button" data-language="en" lang="en" aria-pressed="false">EN</button><span aria-hidden="true">/</span><button type="button" data-language="ja" lang="ja" aria-pressed="true">日本語</button></div><button class="menu" aria-expanded="false" aria-controls="navigation" type="button">Menu ＋</button></div><nav id="navigation" aria-label="Main navigation" data-i18n-aria-label-ja="メインナビゲーション" data-i18n-aria-label-en="Main navigation"><a href="#top" class="active">HOME</a><a href="#profile">PROFILE</a><a href="#activity">ACTIVITY</a><a href="#gallery">GALLERY ↗</a></nav></div></header>
+<main id="main">
+<section class="hero" aria-labelledby="hero-title"><div class="wrap hero-content"><div class="hero-intro"><div class="eyebrow">KAI OGURA / PORTFOLIO</div><div class="hero-name">小倉 可維 <span>Kai Ogura</span></div><h1 id="hero-title"><span data-ja="専門知識を深め、" data-en="Deepening my knowledge,">専門知識を深め、</span><br><em><span data-ja="新しい環境で学ぶ。" data-en="learning in new environments.">新しい環境で学ぶ。</span></em></h1><p class="hero-copy"><span data-ja="やってみたいことに取り組み、試行錯誤しながら学んでいます。" data-en="I take on things I want to try and learn through trial and error.">やってみたいことに取り組み、試行錯誤しながら学んでいます。</span></p><div class="actions"><a class="pill" href="#profile"><span data-ja="プロフィール・経歴" data-en="Profile and experience">プロフィール・経歴</span><span aria-hidden="true">↓</span></a><a class="text-link" href="#activity"><span data-ja="活動記録" data-en="Activity records">活動記録</span> ↓</a></div><div class="hero-bottom"><span>MEMS GYROSCOPE / SPACE ENGINEERING</span><span class="coordinates">SENDAI, JAPAN</span></div></div><figure class="hero-mind"><figcaption><span data-ja="自分を構成する要素" data-en="How I see myself">自分を構成する要素</span><span class="assessment-label" data-ja="自己分析" data-en="Self-assessment">自己分析</span></figcaption><svg class="mind-diagram" viewBox="0 0 640 430" aria-hidden="true"><defs><clipPath id="brain-clip"><path d="M148 31 C128 9 94 17 84 43 C56 39 38 61 40 86 C15 98 14 128 29 147 C11 172 21 202 40 211 C25 237 38 266 61 273 C52 302 69 324 91 327 C92 354 114 371 137 363 C150 384 178 381 191 363 C220 375 245 354 244 328 C271 321 282 292 268 270 C292 249 289 222 275 205 C297 184 290 154 274 143 C287 117 275 92 254 86 C255 57 234 38 212 43 C202 17 169 12 148 31 Z"/></clipPath><g id="brain-art"><g clip-path="url(#brain-clip)"><path fill="#54786b" d="M0 0H310V121H0Z"/><path fill="#d5ac63" d="M0 121H310V208H0Z"/><path fill="#85a9b4" d="M0 208H310V278H0Z"/><path fill="#bd929d" d="M0 278H310V330H0Z"/><path fill="#a5b78b" d="M0 330H310V410H0Z"/><g fill="none" stroke="#fafbf8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M148 31C136 78 159 102 148 145S135 204 150 240S139 316 150 374"/><path d="M84 43Q110 66 91 91T66 133M40 86Q60 76 76 90M29 147Q65 164 87 144T117 122M40 211Q61 190 85 206T124 195M61 273Q72 245 100 252T129 276M91 327Q120 335 119 304M212 43Q187 66 207 92T240 128M254 86Q235 78 222 93M274 143Q239 170 213 146T178 127M275 205Q250 190 227 209T176 197M268 270Q249 245 224 255T177 276M244 328Q215 337 210 303"/></g></g><path d="M148 31 C128 9 94 17 84 43 C56 39 38 61 40 86 C15 98 14 128 29 147 C11 172 21 202 40 211 C25 237 38 266 61 273 C52 302 69 324 91 327 C92 354 114 371 137 363 C150 384 178 381 191 363 C220 375 245 354 244 328 C271 321 282 292 268 270 C292 249 289 222 275 205 C297 184 290 154 274 143 C287 117 275 92 254 86 C255 57 234 38 212 43 C202 17 169 12 148 31 Z" fill="none" stroke="#38564b" stroke-width="2"/></g></defs><use href="#brain-art"/>
+<g class="mind-callouts" fill="none" stroke-width="1.5"><path stroke="#54786b" d="M219 67H306L329 48H356"/><path stroke="#d5ac63" d="M253 163H314L336 128H356"/><path stroke="#85a9b4" d="M253 245H319L340 213H356"/><path stroke="#bd929d" d="M232 302H321L343 298H356"/><path stroke="#a5b78b" d="M191 351H301L330 383H356"/></g>
+<g class="mind-labels"><circle cx="356" cy="48" r="3" fill="#54786b"/><text x="372" y="43" class="mind-percent" fill="#54786b">30<tspan class="mind-unit">%</tspan></text><text x="372" y="67" class="mind-trait" data-ja="本質探究・思考" data-en="Inquiry and reflection">本質探究・思考</text></g><g class="mind-labels"><circle cx="356" cy="128" r="3" fill="#d5ac63"/><text x="372" y="123" class="mind-percent" fill="#d5ac63">25<tspan class="mind-unit">%</tspan></text><text x="372" y="147" class="mind-trait" data-ja="未知への好奇心・挑戦" data-en="Curiosity and challenge">未知への好奇心・挑戦</text></g><g class="mind-labels"><circle cx="356" cy="213" r="3" fill="#85a9b4"/><text x="372" y="208" class="mind-percent" fill="#85a9b4">20<tspan class="mind-unit">%</tspan></text><text x="372" y="232" class="mind-trait" data-ja="構造化・システム思考" data-en="Systems thinking">構造化・システム思考</text></g><g class="mind-labels"><circle cx="356" cy="298" r="3" fill="#bd929d"/><text x="372" y="293" class="mind-percent" fill="#bd929d">15<tspan class="mind-unit">%</tspan></text><text x="372" y="317" class="mind-trait" data-ja="他者への感受性・伴走" data-en="Sensitivity and support">他者への感受性・伴走</text></g><g class="mind-labels"><circle cx="356" cy="383" r="3" fill="#a5b78b"/><text x="372" y="378" class="mind-percent" fill="#a5b78b">10<tspan class="mind-unit">%</tspan></text><text x="372" y="402" class="mind-trait" data-ja="実践・試行錯誤" data-en="Practice and trial and error">実践・試行錯誤</text></g>
+</svg><svg class="mind-mobile" viewBox="0 0 310 400" aria-hidden="true"><use href="#brain-art"/></svg><div class="mind-readable"><ul class="trait-list"><li><span class="trait-label"><i style="--tone:#54786b" aria-hidden="true"></i><span data-ja="本質探究・思考" data-en="Inquiry and reflection">本質探究・思考</span></span><strong>30<small>%</small></strong></li><li><span class="trait-label"><i style="--tone:#d5ac63" aria-hidden="true"></i><span data-ja="未知への好奇心・挑戦" data-en="Curiosity and trying new things">未知への好奇心・挑戦</span></span><strong>25<small>%</small></strong></li><li><span class="trait-label"><i style="--tone:#85a9b4" aria-hidden="true"></i><span data-ja="構造化・システム思考" data-en="Structure and systems thinking">構造化・システム思考</span></span><strong>20<small>%</small></strong></li><li><span class="trait-label"><i style="--tone:#bd929d" aria-hidden="true"></i><span data-ja="他者への感受性・伴走" data-en="Sensitivity to others and support">他者への感受性・伴走</span></span><strong>15<small>%</small></strong></li><li><span class="trait-label"><i style="--tone:#a5b78b" aria-hidden="true"></i><span data-ja="実践・試行錯誤" data-en="Practice and trial and error">実践・試行錯誤</span></span><strong>10<small>%</small></strong></li></ul></div><p class="chart-note"><span data-ja="ESで整理した自己分析。割合は自己認識の目安です。図の色分けはイメージです。" data-en="A self-assessment from an application. Percentages reflect my own perspective; the colored regions are illustrative.">ESで整理した自己分析。割合は自己認識の目安です。図の色分けはイメージです。</span></p></figure></div></section>
 
-    <head>
-    <meta charset="UTF-8">
-    <title>ポートフォリオサイト</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="対外に公開する必要ができたデータの公開に使用します">
-    <link rel="stylesheet" href="css/style.css">
-    </head>
-
-    <body>
-
-        <header>
-
-            <h1 id="logo"><img src="images/logo.png" alt="AigaMayo.Git Web Site"><span>ポートフォリオサイト</span></h1>
-
-            <!--開閉ブロック-->
-            <div id="menubar">
-
-                <nav>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#section2">Profile</a></li>
-                        <li><a href="#section3">Activity Report</a></li>
-                        <li><a href="#section4">Gallery</a></li>
-                    </ul>
-                </nav>
-
-                <ul class="icons">
-                    <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-line"></i></a></li>
-                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                </ul>
-
-            </div>
-            <!--/#menubar-->
-
-        </header>
-
-
-
-
-        <main>
-
-            
-            <!-- ここからsection1 -->
-            <section id="section1" class="section">
-            </section>
-
-
-
-            <!-- ここからsection2 -->
-            <section id="section2" class="section">
-
-                <h2>Profile</h2>
-                <p>小倉 可維（2004/01/23）＠仙台</p>
-
-                <details close>
-                <summary>【2025-】MEMS Gyroscopeに関する共同研究</summary>
+<section class="content wrap" id="profile"><div class="section-heading reveal"><div><div class="number">01 / PROFILE</div><h2><span data-ja="プロフィール" data-en="Profile">プロフィール</span></h2></div><p><span data-ja="研究分野とこれまでの活動。" data-en="Research areas and experience.">Research areas and experience.</span></p></div><div class="about-grid reveal"><div class="portrait"><img src="images/index.galler/mikan.JPG" alt="Mikan, a hybrid rocket developed by the team" data-i18n-alt-ja="開発したハイブリッドロケット「みかん」" data-i18n-alt-en="Mikan, a hybrid rocket developed by the team" loading="lazy"><div class="portrait-label">HYBRID ROCKET / MIKAN</div></div><div class="about-copy"><h3>小倉 可維</h3><div class="eyebrow">KAI OGURA / SENDAI</div><p><span data-ja="仙台を拠点に、MEMSジャイロスコープの研究に取り組んでいます。これまで、ハイブリッドロケットやCANSATの開発、アイデアソンなどに参加してきました。" data-en="Based in Sendai, I work on MEMS gyroscope research. My past activities include hybrid rocket and CanSat development, as well as ideathons.">Based in Sendai, I work on MEMS gyroscope research. My past activities include hybrid rocket and CanSat development, as well as ideathons.</span></p><div class="tags"><span>MEMS / SENSING</span><span>ROCKET DEVELOPMENT</span><span>IDEATHONS</span></div><div class="mini-title">RESEARCH &amp; ACTIVITIES</div><div class="research">01 — MEMS<small><span data-ja="MEMSジャイロスコープ・制御技術" data-en="MEMS gyroscopes and control systems">MEMS gyroscopes and control systems</span></small></div><div class="research">02 — ROCKET / CANSAT<small><span data-ja="ハイブリッドロケット・CANSAT" data-en="Hybrid rockets and CanSat">Hybrid rockets and CanSat</span></small></div><div class="research">03 — IDEATHONS / PROGRAMS<small><span data-ja="アイデアソン・共創プログラム" data-en="Ideathons and collaborative programs">Ideathons and collaborative programs</span></small></div></div></div><div class="history reveal"><div class="mini-title"><span data-ja="EXPERIENCE / 経歴" data-en="EXPERIENCE">EXPERIENCE</span></div><details>
+                <summary><span data-ja="【2025-】MEMS Gyroscopeに関する共同研究" data-en="2025– / Joint Research on MEMS Gyroscopes">2025– / Joint Research on MEMS Gyroscopes</span></summary>
                         <p>
                             <ul>
-                                <li>周波数変調・積分MEMSジャイロスコープのリアルタイムミスマッチ補正技術の開発</li>
-                                <li>超低周波ドリフトに対するリング型MEMSジャイロの静電チューニング定数の自動最適化技術の開発</li>
+                                <li><span data-ja="周波数変調・積分MEMSジャイロスコープのリアルタイムミスマッチ補正技術の開発" data-en="Developing real-time mismatch compensation for frequency-modulated and integrating MEMS gyroscopes.">Developing real-time mismatch compensation for frequency-modulated and integrating MEMS gyroscopes.</span></li>
+                                <li><span data-ja="超低周波ドリフトに対するリング型MEMSジャイロの静電チューニング定数の自動最適化技術の開発" data-en="Developing automatic optimization of electrostatic tuning coefficients in ring MEMS gyroscopes to address ultra-low-frequency drift.">Developing automatic optimization of electrostatic tuning coefficients in ring MEMS gyroscopes to address ultra-low-frequency drift.</span></li>
                             </ul>
                         </p>
                 </details>
-                <details close>
-                    <summary>【2025】Life-Is-Tech DACCHA!   - DX Accelerator Creation Challenge ! -</summary>
+<details>
+                    <summary><span data-ja="【2025】Life-Is-Tech DACCHA!   - DX Accelerator Creation Challenge ! -" data-en="2025 / Life Is Tech DACCHA! — DX Accelerator Creation Challenge">2025 / Life Is Tech DACCHA! — DX Accelerator Creation Challenge</span></summary>
+                        
+                </details>
+<details>
+                    <summary><span data-ja="【2025】SEMICON Japan 2025 ~ 学生によるアイディアソン ~" data-en="2025 / SEMICON Japan Student Ideathon">2025 / SEMICON Japan Student Ideathon</span></summary>
                         <p>
                             <ul>
-                                <li></li>
+                                <li><span data-ja="「視られるから伝える」をテーマに、半導体技術と自律ロボットの将来についての発表" data-en="Presented on the future of semiconductors and autonomous robots, exploring a shift from being observed to communicating.">Presented on the future of semiconductors and autonomous robots, exploring a shift from being observed to communicating.</span></li>
+                                <li><span data-ja="Rapidus賞を受賞" data-en="Received the Rapidus Award.">Received the Rapidus Award.</span></li>
                             </ul>
                         </p>
                 </details>
-                <details close>
-                    <summary>【2025】SEMICON Japan 2025 ~ 学生によるアイディアソン ~</summary>
+<details>
+                    <summary><span data-ja="【2021-2025】From-The-Earth" data-en="2021–2025 / From-The-Earth">2021–2025 / From-The-Earth</span></summary>
                         <p>
                             <ul>
-                                <li>「視られるから伝える」をテーマに、半導体技術と自律ロボットの将来についての発表</li>
-                                <li>Rapidus賞を受賞</li>
+                                <li><span data-ja="J型ハイブリッドロケットエンジンの開発(2021-2025)" data-en="Developed a J-class hybrid rocket engine (2021–2025).">Developed a J-class hybrid rocket engine (2021–2025).</span></li>
+                                <li><span data-ja="K型ハイブリッドロケット「みかん」の開発打ち上げ(2023-2024)" data-en="Developed and launched Mikan, a K-class hybrid rocket (2023–2024).">Developed and launched Mikan, a K-class hybrid rocket (2023–2024).</span></li>
+                                <li><span data-ja="CANSATの開発(2023-2024)" data-en="Developed a CanSat (2023–2024).">Developed a CanSat (2023–2024).</span></li>
+                                <li><span data-ja="I型ハイブリッドロケット「たんぽぽ」の開発打ち上げ(2022-2023)" data-en="Developed and launched Tanpopo, an I-class hybrid rocket (2022–2023).">Developed and launched Tanpopo, an I-class hybrid rocket (2022–2023).</span></li>
+                                <li><span data-ja="L型ハイブリッドロケット「12AY」の開発(2021-2022)" data-en="Developed 12AY, an L-class hybrid rocket (2021–2022).">Developed 12AY, an L-class hybrid rocket (2021–2022).</span></li>
+                                <li><span data-ja="J型ハイブリッドロケット「蕾」の開発打ち上げ(2021-2022)" data-en="Developed and launched Tsubomi, a J-class hybrid rocket (2021–2022).">Developed and launched Tsubomi, a J-class hybrid rocket (2021–2022).</span></li>
+                                <li><span data-ja="F型コンポジット推進剤ロケット「若葉」の開発打ち上げ(2021)" data-en="Developed and launched Wakaba, an F-class composite-propellant rocket (2021).">Developed and launched Wakaba, an F-class composite-propellant rocket (2021).</span></li>
                             </ul>
                         </p>
                 </details>
-                <details close>
-                    <summary>【2021-2025】From-The-Earth</summary>
+<details>
+                    <summary><span data-ja="【2024】WOW!BASE SNSマーケティングプログラム" data-en="2024 / WOW!BASE Social Media Marketing Program">2024 / WOW!BASE Social Media Marketing Program</span></summary>
                         <p>
                             <ul>
-                                <li>J型ハイブリッドロケットエンジンの開発(2021-2025)</li>
-                                <li>K型ハイブリッドロケット「みかん」の開発打ち上げ(2023-2024)</li>
-                                <li>CANSATの開発(2023-2024)</li>
-                                <li>I型ハイブリッドロケット「たんぽぽ」の開発打ち上げ(2022-2023)</li>
-                                <li>L型ハイブリッドロケット「12AY」の開発(2021-2022)</li>
-                                <li>J型ハイブリッドロケット「蕾」の開発打ち上げ(2021-2022)</li>
-                                <li>F型コンポジット推進剤ロケット「若葉」の開発打ち上げ(2021)</li>
+                                <li><span data-ja="「外国人のニーズを捉え日本の魅力を発信せよ」をテーマとした、内閣府CJ政策・(株)FinTとのコラボプログラム" data-en="A program with the Cabinet Office Cool Japan initiative and FinT, sharing the appeal of Japan by understanding international audiences.">A program with the Cabinet Office Cool Japan initiative and FinT, sharing the appeal of Japan by understanding international audiences.</span></li>
                             </ul>
                         </p>
                 </details>
-                <details close>
-                    <summary>【2024】WOW!BASE SNSマーケティングプログラム </summary>
+<details>
+                    <summary><span data-ja="【2024】WOW!BASE クールジャパン動画作成プログラム ＠福井  /  クールジャパン政策ディスカッション ＠内閣府" data-en="2024 / WOW!BASE Cool Japan Video Program &amp; Cabinet Office Policy Discussion">2024 / WOW!BASE Cool Japan Video Program &amp; Cabinet Office Policy Discussion</span></summary>
                         <p>
                             <ul>
-                                <li>「外国人のニーズを捉え日本の魅力を発信せよ」をテーマとした、内閣府CJ政策・(株)FinTとのコラボプログラム</li>
+                                <li><span data-ja="(株)RecruitのWOW!BASEにて福井小浜の魅力を動画制作を通じて発信" data-en="Created videos showcasing Obama, Fukui, through the WOW!BASE program at Recruit.">Created videos showcasing Obama, Fukui, through the WOW!BASE program at Recruit.</span></li>
+                                <li><span data-ja="内閣府機的財産戦略推進事務局にてクールジャパン政策について意見交換" data-en="Discussed Cool Japan policy at the Cabinet Office Intellectual Property Strategy Promotion Office.">Discussed Cool Japan policy at the Cabinet Office Intellectual Property Strategy Promotion Office.</span></li>
                             </ul>
                         </p>
                 </details>
-                <details close>
-                    <summary>【2024】WOW!BASE クールジャパン動画作成プログラム ＠福井  /  クールジャパン政策ディスカッション ＠内閣府</summary>
+<details>
+                    <summary><span data-ja="【2023】京都大学 宇宙医学教育プログラム @徳島大学病院" data-en="2023 / Kyoto University Space Medicine Program at Tokushima University Hospital">2023 / Kyoto University Space Medicine Program at Tokushima University Hospital</span></summary>
                         <p>
                             <ul>
-                                <li>(株)RecruitのWOW!BASEにて福井小浜の魅力を動画制作を通じて発信</li>
-                                <li>内閣府機的財産戦略推進事務局にてクールジャパン政策について意見交換</li>
+                                <li><span data-ja="個人2回目となる文部科学省宇宙航空科学技術推進委託費への採択" data-en="Selected for a MEXT-funded aerospace science and technology program for the second time.">Selected for a MEXT-funded aerospace science and technology program for the second time.</span></li>
+                                <li><span data-ja="徳島大学病院においてISS利用政策・軌道上での筋萎縮について学習" data-en="Studied ISS utilization policy and muscle atrophy in orbit at Tokushima University Hospital.">Studied ISS utilization policy and muscle atrophy in orbit at Tokushima University Hospital.</span></li>
+                                <li><span data-ja="京都大学「有人宇宙医学」の受講" data-en="Completed the Kyoto University course on human space medicine.">Completed the Kyoto University course on human space medicine.</span></li>
                             </ul>
                         </p>
                 </details>
-                <details close>
-                    <summary>【2023】京都大学 宇宙医学教育プログラム @徳島大学病院</summary>
-                        <p>
-                            <ul>
-                                <li>個人2回目となる文部科学省宇宙航空科学技術推進委託費への採択</li>
-                                <li>徳島大学病院においてISS利用政策・軌道上での筋萎縮について学習</li>
-                                <li>京都大学「有人宇宙医学」の受講</li>
-                            </ul>
-                        </p>
-                </details>
-                <details close>
-                    <summary>【2023】Ryman-Sat-Project</summary>
+<details>
+                    <summary><span data-ja="【2023】Ryman-Sat-Project" data-en="2023 / Ryman-Sat-Project">2023 / Ryman-Sat-Project</span></summary>
                     <p>
                         <ul>
-                            <li>「身近で誰でもできる宇宙開発を」をテーマに活動しているRymanSatSpacesに参加</li>
+                            <li><span data-ja="「身近で誰でもできる宇宙開発を」をテーマに活動しているRymanSatSpacesに参加" data-en="Joined RymanSatSpaces, a community making space development accessible to everyone.">Joined RymanSatSpaces, a community making space development accessible to everyone.</span></li>
                         </ul>
                     </p>
                 </details>
-                <details close>
-                    <summary>【2020-2022】学生団体 Seek-Sole-Self</summary>
+<details>
+                    <summary><span data-ja="【2020-2022】学生団体 Seek-Sole-Self" data-en="2020–2022 / Seek-Sole-Self Student Organization">2020–2022 / Seek-Sole-Self Student Organization</span></summary>
                     <p>
                         <ul>
-                            <li>「自分の好きなことで生きていけるように」をテーマに掲げた高校生向け学生団体を知人と共同立ち上げ</li>
-                            <li>立ち上げ時の基本理念設立・制度設計を中心に担当</li>
+                            <li><span data-ja="「自分の好きなことで生きていけるように」をテーマに掲げた高校生向け学生団体を知人と共同立ち上げ" data-en="Co-founded a student organization for high school students, helping them pursue a life doing what they love.">Co-founded a student organization for high school students, helping them pursue a life doing what they love.</span></li>
+                            <li><span data-ja="立ち上げ時の基本理念設立・制度設計を中心に担当" data-en="Focused on defining the founding principles and organizational structure.">Focused on defining the founding principles and organizational structure.</span></li>
                         </ul>
                     </p>
                 </details>
-                <details close>
-                    <summary>【2020】The Global Enterprise Challenge</summary>
+<details>
+                    <summary><span data-ja="【2020】The Global Enterprise Challenge" data-en="2020 / The Global Enterprise Challenge">2020 / The Global Enterprise Challenge</span></summary>
                     <p>
                         <ul>
-                            <li>世界が共通に抱えるような環境、食料、エネルギー、産業、災害対策、教育、福祉など多岐にわたる問題から出題され、それの課題解決に対して事業を通じてどのように貢献するか、自分達で具体的な内容を議論し、 12時間以内にその事業アイデアを提出物にまとめる国際競技</li>
+                            <li><span data-ja="世界が共通に抱えるような環境、食料、エネルギー、産業、災害対策、教育、福祉など多岐にわたる問題から出題され、それの課題解決に対して事業を通じてどのように貢献するか、自分達で具体的な内容を議論し、 12時間以内にその事業アイデアを提出物にまとめる国際競技" data-en="An international competition to develop a business proposal within 12 hours, addressing global challenges in the environment, food, energy, industry, disaster preparedness, education, and welfare.">An international competition to develop a business proposal within 12 hours, addressing global challenges in the environment, food, energy, industry, disaster preparedness, education, and welfare.</span></li>
                         </ul>
                     </p>
                 </details>
-                <details close>
-                    <summary>【2019-2020】東京理科大学 宇宙教育プログラム</summary>
+<details>
+                    <summary><span data-ja="【2019-2020】東京理科大学 宇宙教育プログラム" data-en="2019–2020 / Tokyo University of Science Space Education Program">2019–2020 / Tokyo University of Science Space Education Program</span></summary>
                     <p>
                         <ul>
-                            <li>個人初となる文部科学省宇宙航空科学技術推進委託費への採択</li>
-                            <li>宇宙工学をはじめとして宇宙物理学・天文学・宇宙環境利用工学・宇宙ビジネスに関する講座・講演を受講</li>
-                            <li>将来の火星探査に必要になる360°モニタリングシステムの開発(2019)</li>
-                            <li>微小重力空間での粘性流体の挙動の可視化を観察する実験の立案・自動で行う実験装置の開発(2019-2020)</li>
+                            <li><span data-ja="個人初となる文部科学省宇宙航空科学技術推進委託費への採択" data-en="Selected for a MEXT-funded aerospace science and technology program for the first time.">Selected for a MEXT-funded aerospace science and technology program for the first time.</span></li>
+                            <li><span data-ja="宇宙工学をはじめとして宇宙物理学・天文学・宇宙環境利用工学・宇宙ビジネスに関する講座・講演を受講" data-en="Attended courses and lectures on space engineering, astrophysics, astronomy, space environment utilization, and space business.">Attended courses and lectures on space engineering, astrophysics, astronomy, space environment utilization, and space business.</span></li>
+                            <li><span data-ja="将来の火星探査に必要になる360&#176;モニタリングシステムの開発(2019)" data-en="Developed a 360-degree monitoring system for future Mars exploration (2019).">Developed a 360-degree monitoring system for future Mars exploration (2019).</span></li>
+                            <li><span data-ja="微小重力空間での粘性流体の挙動の可視化を観察する実験の立案・自動で行う実験装置の開発(2019-2020)" data-en="Designed an experiment to visualize viscous fluid behavior in microgravity and developed automated equipment (2019–2020).">Designed an experiment to visualize viscous fluid behavior in microgravity and developed automated equipment (2019–2020).</span></li>
                         </ul>
                     </p>
                 </details>
-                <details close>
-                    <summary>【2017-2019】部活動</summary>
+<details>
+                    <summary><span data-ja="【2017-2019】部活動" data-en="2017–2019 / School Science Club">2017–2019 / School Science Club</span></summary>
                     <p>
                         <ul>
-                            <li>土壌細菌のペニシリン系抗菌薬への耐薬性に関する研究</li>
-                            <li>Bz反応の非線形振動におけるpH依存性に関する研究</li>
+                            <li><span data-ja="土壌細菌のペニシリン系抗菌薬への耐薬性に関する研究" data-en="Researched resistance to penicillin antibiotics in soil bacteria.">Researched resistance to penicillin antibiotics in soil bacteria.</span></li>
+                            <li><span data-ja="Bz反応の非線形振動におけるpH依存性に関する研究" data-en="Researched pH dependence in nonlinear oscillations of the Belousov–Zhabotinsky reaction.">Researched pH dependence in nonlinear oscillations of the Belousov–Zhabotinsky reaction.</span></li>
                         </ul>
                     </p>
-                </details>
-
-                <!---<h2>テンプレートのご利用前に必ずお読み下さい</h2>
-
-                <h3>利用規約のご案内</h3>
-                <p>このテンプレートは、<a href="https://template-party.com/">Template Party</a>にて無料配布している『アーティスト(画家・作家・音楽家・芸能人など)向け 無料ホームページテンプレート tp_artist2』です。必ずダウンロード先のサイトの<a href="https://template-party.com/read.html">利用規約</a>をご一読の上でご利用下さい。</p>
-                <h3>HP最下部の著作表示『Web Design:Template-Party』は無断で削除しないで下さい。</h3>
-                <p>わざと見えなく加工する事も禁止です。</p>
-                <h3>下部の著作を外したい場合は</h3>
-                <p><a href="https://template-party.com/">Template-Party</a>の<a href="https://template-party.com/member.html">ライセンス契約</a>を行う事でHP下部の著作を外す事ができます。</p>
-
-                <h3>当テンプレートの詳しい使い方は</h3>
-                <p><a href="about.html">こちらをご覧下さい。</a></p>   --->
-
-            </section>
-
-
-
-            <!-- ここからsection3 -->
-            <section id="section3" class="section">
-
-            <h2>Activity Report</h2>
-            <pre>最新更新&#009;<a href="./ActivityReport/index.html">すべて→</a></pre>
-
-            <dl class="new">
-
-            <dt>2026/01/01<span>展示会</span></dt>
-            <dd>04/6-8に八芳園で行われるTEAMZ WEB3/AI SUMMIT 2026に参加します</dd>
-            <dt>2025/12/18<span>展示会</span></dt>
-            <dd>SEMICON Japan 2025「学生によるアイディアソン」において我々のチームがRapidus賞を受賞しました　<a href="https://www.mech.tohoku.ac.jp/news/prize/14394/">東北大学機械系リリース</a></dd>
-            <dt>2025/12/08<span>宮城県</span></dt>
-            <dd>DX Accelerator Creation Challengeに参加することが決定しました</dd>
-            <dt>2025/11/13<span>学会</span></dt>
-            <dd>11/10-13に仙台国際センターで行われる22nd Internatinal Conference on Flow Dynamicsに参加しました</dd>
-            <dt>2025/11/06<span>SEMICON</span></dt>
-            <dd>12/17-19に東京ビックサイトで行われるSEMICON Japanにおいて「半導体と創る未来」というタイトルにて登壇することが決まりました　<a href="https://www.semiconjapan.org/jp">SEMICON Japan HP</a></dd>
-            <dt>2025/04/15<span>共同研究</span></dt>
-            <dd>このたび東芝デバイス＆ストレージ株式会社様と高性能MEMSジャイロスコープの開発に関する共同研究を開始しました</dd>
-            <dt>2025/04/01<span>Recruit</span></dt>
-            <dd>12月に収録したWOW!BASEについてのインタビュー動画がWOW!BASE編として”未来シナリオ共創プログラム”の一環として公開されました　<a href="https://www.wowbase.jp/">こちらから</a></dd>
-            <dt>2024/12/23<span>Recruit</span></dt>
-            <dd>(株)Recruit,WOW!BASE SNSマーケティングプログラムの最終発表がRecruit九段下東京オフィスで行われました。今回制作したコンテンツは後日内閣府クールジャパンアカウントで公開されます。</dd>
-
-
-
-
-            
-            <!--
-            <dt>2024/10/18<span>FTE</span></dt>
-            <dd>現在開発中の2号機HRE(ハイブリッドロケットエンジン)の筐体耐圧試験を実施したものの、試験途中でリークが確認されたため試験を中断しました</dd>
-            <dt>2024/10/13<span>備忘録</span></dt>
-            <dd>応用情報技術者試験を受験しました</dd>
-            <dt>2024/10/11<span>Recruit</span></dt>
-            <dd>(株)Recruit,WOW!BASEクールジャパン動画作成プログラムの一環として、内閣府知的財産戦略推進事務局にて行われたディスカッションに参加しました</dd>
-            <dt>2024/09/05<span>Recruit</span></dt>
-            <dd>(株)Recruit,WOW!BASEクールジャパン動画作成プログラムの最終発表がリクルート東京本社で行われました。作成した動画は、後日CJPFにて公開される予定です</dd>
-            -->
-            
-
-            <!--
-            <dt>2024/05/16<span>その他</span></dt>
-            <dd>htmlの最後のタグ数行がおかしくなってしまっていました。既にご利用中のお客様は最新テンプレをDLして頂き、htmlの下の数行部分を入れ替えて下さい。</dd>
-
-            <dt>2024/05/05<span>その他</span></dt>
-            <dd>css冒頭の設定が、「body &gt; * {box-sizing: border-box;}」となっておりましたが、「body * {box-sizing: border-box;}」に修正。</dd>
-
-            <dt>2024/05/02<span>その他</span></dt>
-            <dd>アーティスト(画家・作家・音楽家・芸能人など)向け 無料ホームページテンプレート tp_artist2公開。</dd>
-
-            <dt>2024/04/10<span>メディア</span></dt>
-            <dd>地元メディアへ掲載。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
-
-            <dt>2024/01/29<span>メディア</span></dt>
-            <dd>雑誌インタビューが掲載されました。サンプルテキスト。</dd>
-
-            <dt>2023/12/25<span>イベント</span></dt>
-            <dd>イベントを開催。サンプルテキスト。サンプルテキスト。</dd>
-
-            <dt>2023/12/01<span>お知らせ</span></dt>
-            <dd>webサイトを公開しました。</dd>
-            -->
-
-            </dl>
-
-            <!--
-            <a href="https://q19cms.com/files_m/file/cms_oshirase.html" target="_blank"><img src="https://template-party.com/file/images/cms_oshirase/banner_oshirase_cms2.jpg" alt="無料で使えるお知らせCMSのご案内"></a>
-            -->
-
-            </section>
-
-
-
-            <!-- ここからsection4 -->
-            <section id="section4" class="section">
-
-            <h2>Gallery</h2>
-            <!--
-            <p>これはsection4のコンテンツです。</p>
-
-            <p>ここのサムネイル画像は、長方形であっても正方形にトリミングされるようになっています。<br>
-            リンク（aタグ）を指定しないと画像が表示されないので注意して下さい。<br>
-            もし、リンクを一切使わずサムネイルだけ出しておきたいなら、aタグをdivタグに置き換えて（&lt;div&gt;〜&lt;/div&gt;）、style.cssの<br>
-            .list-grid-trimming .list aを、.list-grid-trimming .list divにすればOKです。</p>
-            <p>現在４列ですが、５列や３列に簡単に変更できます。詳しくは、cssフォルダのstyle.cssの<br>
-            .list-grid-trimming {<br>
-            のブロック内の説明を読んで下さい。</p> -->
-
-            <div class="list-grid-trimming">
-
-            <div class="list">
-            <a href="images/index.galler/day1.heshiko.jpg" data-lightbox="WOWFUKUI" data-title="【WOW!BASEクールジャパン動画作成プログラム】初日グループワークにて、福井の保存食を知るために班員全員でへしこを試食した時のひとまく。">
-            <img src="images/index.galler/day1.heshiko.jpg" alt="">
-            </a>
-            </div>
-
-            <div class="list">
-            <a href="images/index.galler/day2.sea.jpg" data-lightbox="WOWFUKUI" data-title="【WOW!BASEクールジャパン動画作成プログラム】担当地域の小浜市の海岸線">
-            <img src="images/index.galler/day2.sea.jpg" alt="">
-            </a>
-            </div>
-
-            <div class="list">
-            <a href="images/index.galler/day2.train.jpg" data-lightbox="WOWFUKUI" data-title="【WOW!BASEクールジャパン動画作成プログラム】東舞鶴線にて動画に使う素材を撮影しているひとまく">
-            <img src="images/index.galler/day2.train.jpg" alt="">
-            </a>
-            </div>
-
-            <div class="list">
-            <a href="images/index.galler/day2.train2.jpg" data-lightbox="WOWFUKUI" data-title="【WOW!BASEクールジャパン動画作成プログラム】小浜市に移動中の車内からの景色">
-            <img src="images/index.galler/day2.train2.jpg" alt="">
-            </a>
-            </div>
-
-            <div class="list">
-            <a href="images/index.galler/day3.train.jpg" data-lightbox="WOWFUKUI" data-title="【WOW!BASEクールジャパン動画作成プログラム】2日間の取材を終え小浜から敦賀駅に帰る時の車内から">
-            <img src="images/index.galler/day3.train.jpg" alt="">
-            </a>
-            </div>
-
-            <div class="list">
-            <a href="images/index.galler/day4.recruit.jpg" data-lightbox="WOWFUKUI" data-title="【WOW!BASEクールジャパン動画作成プログラム】場所をリクルート東京本社に移し、編集作業1日目の帰りの景色">
-            <img src="images/index.galler/day4.recruit.jpg" alt="">
-            </a>
-            </div>
-
-            <!--
-            <div class="list">
-            <a href="images/index.galler/day6.last.jpg" data-lightbox="WOWFUKUI" data-title="【WOW!BASEクールジャパン動画作成プログラム】試写会前のグループでの完成動画確認">
-            <img src="images/index.galler/day6.last.jpg" alt="">
-            </a>
-            </div>
-            -->
-
-            <div class="list">
-            <a href="images/index.galler/day9.jpg" data-lightbox="WOWFUKUI" data-title="【WOW!BASEクールジャパン動画作成プログラム】完成動画提出前の音声・画像確認">
-            <img src="images/index.galler/day9.jpg" alt="">
-            </a>
-            </div>
-
-            <div class="list">
-            <a href="images/index.galler/Npac.jpg" data-lightbox="WOWGOV" data-title="【WOW!BASE クールジャパン政策内閣府ディスカッション】グループワークにて現在のクールジャパン政策の課題を列挙">
-            <img src="images/index.galler/Npac.jpg" alt="">
-            </a>
-            </div>
-
-            <div class="list">
-            <a href="images/index.galler/nface.jpg" data-lightbox="WOWGOV" data-title="【WOW!BASE クールジャパン政策内閣府ディスカッション】ディスカッションを行った内閣府中央合同庁舎8号館前で記念撮影">
-            <img src="images/index.galler/nface.jpg" alt="">
-            </a>
-            </div>
-
-            <div class="list">
-            <a href="images/index.galler/nse24sea.JPG" data-lightbox="NSE24" data-title="【NSE24】24年能代宇宙イベント海打ち会場の夜明け">
-            <img src="images/index.galler/nse24sea.t.JPG" alt="">
-            </a>
-            </div>
-
-            <div class="list">
-            <a href="images/index.galler/mikan.JPG" data-lightbox="NSE24" data-title="【NSE24】引退前最後の機体となった海打ち機体「みかん」">
-            <img src="images/index.galler/mikan.t.JPG" alt="">
-            </a>
-            </div>
-
-            <div class="list">
-            <a href="images/index.galler/mikan.pe.JPG" data-lightbox="NSE24" data-title="【NSE24】打ち上げ前の最終審査を受けるみかん">
-            <img src="images/index.galler/mikan.pe.JPG" alt="">
-            </a>
-            </div>
-
-            <div class="list">
-            <a href="images/index.galler/nse24mikanpe.JPG" data-lightbox="NSE24" data-title="【NSE24】打ち上げ前に全セクションを「全組」">
-            <img src="images/index.galler/nse24mikanpe.JPG" alt="">
-            </a>
-            </div>
-
-            <div class="list">
-            <a href="images/index.galler/nse24sea.pe.JPG" data-lightbox="NSE24" data-title="【NSE24】みかんの打ち上げ前の準備中の様子">
-            <img src="images/index.galler/nse24sea.pe.JPG" alt="">
-            </a>
-            </div>
-
-            <div class="list">
-            <a href="images/index.galler/tubomi.JPG" data-lightbox="tubomi" data-title="【ISE23/NSE23】元ISE23機体「蕾」で用いるフェアリング機構の構造検討時の様子">
-            <img src="images/index.galler/tubomi.JPG" alt="">
-            </a>
-            </div>
-
-            <div class="list">
-            <a href="images/index.galler/wakaba.JPG" data-lightbox="WAKABA" data-title="【新入生プロジェクト】初めてのロケット製作となったコンポジット推進剤ロケット「若葉」">
-            <img src="images/index.galler/wakaba.JPG" alt="">
-            </a>
-            </div>
-
-            <div class="list">
-            <a href="images/index.galler/wakaba.mid.JPG" data-lightbox="WAKABA" data-title="【新入生プロジェクト】若葉製作中の一幕．担当の電装部分(下)とノーズコーンの組合せ">
-            <img src="images/index.galler/wakaba.mid.JPG" alt="">
-            </a>
-            </div>
-
-            <div class="list">
-            <a href="images/index.galler/wakabakapre.jpg" data-lightbox="WAKABA" data-title="【新入生プロジェクト】電装部分とパラシュート解放部の間の部品．機体のカプラー・解放部のモーター固定治具・電装基板固定治具を一つの部品に担わせたユニバーサル部品">
-            <img src="images/index.galler/wakabakapre.jpg" alt="">
-            </a>
-            </div>
-
-
-
-            </div>
-            <!--/.list-grid-->
-
-            <!--
-            <h3>lightboxを使用しています</h3>
-            <p>サムネイル画像をクリックすると、画面が暗転してポップアップが開きます。<br>
-            海外で配布されているプログラムなので、カスタマイズなどには当サイトでは対応していません。ご自身でGoogle検索などかけてみて下さい。</p>
-            <h3>画像を増やしたい場合</h3>
-            <p>基本的にはご利用のテンプレートのhtml側のパーツをコピペして増やしてみて下さい。<br>
-            以下のタグのようにポップアップで大きく表示される画像はaタグ内で読み込み、サムネイル画像（小さな画像）はimgタグで読み込まれています。<br>
-            このテンプレートではどちらの画像も同じ画像を使っていますが、それぞれ別の画像を配置して頂いても構いません。</p>
-            <p class="look">&lt;a href=&quot;<span class="color-check">images_gallery/1.jpg</span>&quot; data-lightbox=&quot;group1&quot; data-title=&quot;タイトルをここに入れます&quot;&gt;<br>
-            &lt;img src=&quot;<span class="color-check">images_gallery/1.jpg</span>&quot; alt=&quot;&quot;&gt;<br>
-            &lt;/a&gt;</p>
-            <h3>グループ</h3>
-            <p><span class="look">data-lightbox="group1"</span><br>
-            は、ポップアップで表示した場合に次の画像へ繋ぐグループの設定です。<br>
-            「group1」部分は好きに変更して頂いて構いません。<br>
-            同じグループ名がついている場合に次の画像へのリンク矢印が出ます。グループごとに見て欲しい場合はこのグループ名を変更しておくといいでしょう。</p>
-            <p class="look">&lt;a href=&quot;images_gallery/1.jpg&quot; <span class="color-check">data-lightbox=&quot;group1&quot;</span> data-title=&quot;タイトルをここに入れます&quot;&gt;<br>
-            &lt;img src=&quot;images_gallery/1.jpg&quot; alt=&quot;&quot;&gt;<br>
-            &lt;/a&gt;</p>
-            <h3>ポップアップ時のコメント</h3>
-            <p><span class="look">data-title="タイトルをここに入れます"</span><br>
-            は、lightboxで暗転表示された際に写真下に表示されるテキストです。<br>
-            よく分からない場合は実際に設定して動作を確認してみて下さい。不要ならタグごと削除してもらえばOKです。</p>
-            <p class="look">&lt;a href=&quot;images_gallery/1.jpg&quot; data-lightbox=&quot;group1&quot; <span class="color-check">data-title=&quot;タイトルをここに入れます&quot;</span>&gt;<br>
-            &lt;img src=&quot;images_gallery/1.jpg&quot; alt=&quot;&quot;&gt;<br>
-            &lt;/a&gt;</p>
-
-            <h3>lightboxを使う為に必要なタグ、ファイル類。</h3>
-            <p>cssフォルダのstyle.css冒頭で読み込んでいる「lightbox.cssの読み込み」のブロック。<br>
-            html下部で読み込んでいる「lightbox用jsファイルの読み込み」のブロック。</p>
-            <p>何年も経過した場合、動作に問題が出てくる可能性があります。<br>
-            テンプレートを編集していないのに突然動きがおかしくなった場合は、上記のバージョンを変更して動作するか確認してみて下さい。</p>
-            -->
-
-            </section>
-
-
-
-        </main>
-
-    <footer>
-    <small>Copyright&copy; AigaMayo.Git All Rights Reserved.</small>
-    <span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
-    </footer>
-
-    <!--ページの上部へ戻るボタン-->
-    <div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
-
-    <!--開閉ボタン（ハンバーガーアイコン）-->
-    <div id="menubar_hdr">
-    <span></span><span></span><span></span>
-    </div>
-
-    <!--jQueryの読み込み-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <!--lightbox用jsファイルの読み込み-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox-plus-jquery.min.js"></script>
-
-    <!--このテンプレート専用のスクリプト-->
-    <script src="js/main.js"></script>
-
-    </body>
-</html>
+                </details></div></section>
+<section class="content wrap" id="activity"><div class="section-heading reveal"><div><div class="number">02 / ACTIVITY</div><h2><span data-ja="活動記録" data-en="Activity records">活動記録</span></h2></div><a class="text-link" href="ActivityReport/index.html"><span data-ja="すべての活動レポート ↗" data-en="All activity reports (Japanese) ↗">All activity reports (Japanese) ↗</span></a></div><div class="news-tools"><input id="search" type="search" aria-label="Search activities" data-i18n-aria-label-ja="活動履歴を検索" data-i18n-aria-label-en="Search activities" placeholder="Filter by keyword…" data-i18n-placeholder-ja="キーワードで絞り込み…" data-i18n-placeholder-en="Filter by keyword…"><span id="result-count" aria-live="polite"></span></div><div class="news-list reveal"><article class="news-row"><div class="news-date">2026/01/01<span><span data-ja="展示会" data-en="Exhibition">Exhibition</span></span></div><div><span data-ja="04/6-8に八芳園で行われるTEAMZ WEB3/AI SUMMIT 2026に参加します" data-en="Planning to attend TEAMZ WEB3/AI SUMMIT 2026 at Happo-en on April 6–8.">Planning to attend TEAMZ WEB3/AI SUMMIT 2026 at Happo-en on April 6–8.</span></div></article>
+<article class="news-row"><div class="news-date">2025/12/18<span><span data-ja="展示会" data-en="Exhibition">Exhibition</span></span></div><div><span data-ja="SEMICON Japan 2025「学生によるアイディアソン」において我々のチームがRapidus賞を受賞しました" data-en="Our team received the Rapidus Award at the SEMICON Japan 2025 Student Ideathon.">Our team received the Rapidus Award at the SEMICON Japan 2025 Student Ideathon.</span><a href="https://www.mech.tohoku.ac.jp/news/prize/14394/"><span data-ja="東北大学機械系リリース" data-en="Tohoku University announcement">Tohoku University announcement</span></a></div></article>
+<article class="news-row"><div class="news-date">2025/12/08<span><span data-ja="宮城県" data-en="Miyagi">Miyagi</span></span></div><div><span data-ja="DX Accelerator Creation Challengeに参加することが決定しました" data-en="Selected to participate in the DX Accelerator Creation Challenge.">Selected to participate in the DX Accelerator Creation Challenge.</span></div></article>
+<article class="news-row"><div class="news-date">2025/11/13<span><span data-ja="学会" data-en="Conference">Conference</span></span></div><div><span data-ja="11/10-13に仙台国際センターで行われる22nd Internatinal Conference on Flow Dynamicsに参加しました" data-en="Attended the 22nd International Conference on Flow Dynamics at Sendai International Center on November 10–13.">Attended the 22nd International Conference on Flow Dynamics at Sendai International Center on November 10–13.</span></div></article>
+<article class="news-row"><div class="news-date">2025/11/06<span>SEMICON</span></div><div><span data-ja="12/17-19に東京ビックサイトで行われるSEMICON Japanにおいて「半導体と創る未来」というタイトルにて登壇することが決まりました" data-en="Scheduled to present “Creating the Future with Semiconductors” at SEMICON Japan, Tokyo Big Sight, on December 17–19.">Scheduled to present “Creating the Future with Semiconductors” at SEMICON Japan, Tokyo Big Sight, on December 17–19.</span><a href="https://www.semiconjapan.org/jp">SEMICON Japan HP</a></div></article>
+<article class="news-row"><div class="news-date">2025/04/15<span><span data-ja="共同研究" data-en="Joint research">Joint research</span></span></div><div><span data-ja="このたび東芝デバイス＆ストレージ株式会社様と高性能MEMSジャイロスコープの開発に関する共同研究を開始しました" data-en="Started joint research with Toshiba Electronic Devices &amp; Storage Corporation on high-performance MEMS gyroscopes.">Started joint research with Toshiba Electronic Devices &amp; Storage Corporation on high-performance MEMS gyroscopes.</span></div></article>
+<article class="news-row"><div class="news-date">2025/04/01<span>Recruit</span></div><div><span data-ja="12月に収録したWOW!BASEについてのインタビュー動画がWOW!BASE編として”未来シナリオ共創プログラム”の一環として公開されました" data-en="An interview about WOW!BASE, recorded in December, was released as part of the Future Scenario Co-creation Program.">An interview about WOW!BASE, recorded in December, was released as part of the Future Scenario Co-creation Program.</span><a href="https://www.wowbase.jp/"><span data-ja="こちらから" data-en="Watch here">Watch here</span></a></div></article>
+<article class="news-row"><div class="news-date">2024/12/23<span>Recruit</span></div><div><span data-ja="(株)Recruit,WOW!BASE SNSマーケティングプログラムの最終発表がRecruit九段下東京オフィスで行われました。今回制作したコンテンツは後日内閣府クールジャパンアカウントで公開されます。" data-en="Gave the final presentation for the WOW!BASE Social Media Marketing Program at Recruit in Kudanshita, Tokyo. The content created will later appear on the Cabinet Office Cool Japan account.">Gave the final presentation for the WOW!BASE Social Media Marketing Program at Recruit in Kudanshita, Tokyo. The content created will later appear on the Cabinet Office Cool Japan account.</span></div></article></div><p id="empty" class="empty" hidden><span data-ja="該当する活動はありません。別のキーワードでお試しください。" data-en="No activities found. Please try another keyword.">No activities found. Please try another keyword.</span></p></section>
+<section class="content wrap" id="gallery"><div class="section-heading reveal"><div><div class="number">03 / GALLERY</div><h2><span data-ja="活動写真" data-en="Photos">活動写真</span></h2></div><p><span data-ja="開発・製作や打ち上げ時の写真。" data-en="Photos of development, fabrication, and launches.">Photos of development, fabrication, and launches.</span><br><span data-ja="写真をクリックすると拡大できます。" data-en="Select a photo for a closer look.">Select a photo for a closer look.</span></p></div><div class="gallery reveal"><button class="photo" type="button" data-full="images/index.galler/day1.heshiko.jpg" data-caption="WOW!BASE Cool Japan — Tasting heshiko, a traditional preserved food from Fukui, with the team on day one." data-i18n-data-caption-ja="【WOW!BASEクールジャパン動画作成プログラム】初日グループワークにて、福井の保存食を知るために班員全員でへしこを試食した時のひとまく。" data-i18n-data-caption-en="WOW!BASE Cool Japan — Tasting heshiko, a traditional preserved food from Fukui, with the team on day one."><img loading="lazy" src="images/index.galler/day1.heshiko.jpg" alt="WOW!BASE Cool Japan — Tasting heshiko, a traditional preserved food from Fukui, with the team on day one." data-i18n-alt-ja="【WOW!BASEクールジャパン動画作成プログラム】初日グループワークにて、福井の保存食を知るために班員全員でへしこを試食した時のひとまく。" data-i18n-alt-en="WOW!BASE Cool Japan — Tasting heshiko, a traditional preserved food from Fukui, with the team on day one."><span><span data-ja="【WOW!BASEクールジャパン動画作成プログラム】初日グループワークにて、福井の保存食を知るために班員全員でへしこを試食した時のひとまく。" data-en="WOW!BASE Cool Japan — Tasting heshiko, a traditional preserved food from Fukui, with the team on day one.">WOW!BASE Cool Japan — Tasting heshiko, a traditional preserved food from Fukui, with the team on day one.</span></span><b aria-hidden="true">↗</b></button>
+<button class="photo" type="button" data-full="images/index.galler/day2.sea.jpg" data-caption="WOW!BASE Cool Japan — The coastline of Obama, our assigned filming area." data-i18n-data-caption-ja="【WOW!BASEクールジャパン動画作成プログラム】担当地域の小浜市の海岸線" data-i18n-data-caption-en="WOW!BASE Cool Japan — The coastline of Obama, our assigned filming area."><img loading="lazy" src="images/index.galler/day2.sea.jpg" alt="WOW!BASE Cool Japan — The coastline of Obama, our assigned filming area." data-i18n-alt-ja="【WOW!BASEクールジャパン動画作成プログラム】担当地域の小浜市の海岸線" data-i18n-alt-en="WOW!BASE Cool Japan — The coastline of Obama, our assigned filming area."><span><span data-ja="【WOW!BASEクールジャパン動画作成プログラム】担当地域の小浜市の海岸線" data-en="WOW!BASE Cool Japan — The coastline of Obama, our assigned filming area.">WOW!BASE Cool Japan — The coastline of Obama, our assigned filming area.</span></span><b aria-hidden="true">↗</b></button>
+<button class="photo" type="button" data-full="images/index.galler/day2.train.jpg" data-caption="WOW!BASE Cool Japan — Capturing footage on the train near Higashi-Maizuru." data-i18n-data-caption-ja="【WOW!BASEクールジャパン動画作成プログラム】東舞鶴線にて動画に使う素材を撮影しているひとまく" data-i18n-data-caption-en="WOW!BASE Cool Japan — Capturing footage on the train near Higashi-Maizuru."><img loading="lazy" src="images/index.galler/day2.train.jpg" alt="WOW!BASE Cool Japan — Capturing footage on the train near Higashi-Maizuru." data-i18n-alt-ja="【WOW!BASEクールジャパン動画作成プログラム】東舞鶴線にて動画に使う素材を撮影しているひとまく" data-i18n-alt-en="WOW!BASE Cool Japan — Capturing footage on the train near Higashi-Maizuru."><span><span data-ja="【WOW!BASEクールジャパン動画作成プログラム】東舞鶴線にて動画に使う素材を撮影しているひとまく" data-en="WOW!BASE Cool Japan — Capturing footage on the train near Higashi-Maizuru.">WOW!BASE Cool Japan — Capturing footage on the train near Higashi-Maizuru.</span></span><b aria-hidden="true">↗</b></button>
+<button class="photo" type="button" data-full="images/index.galler/day2.train2.jpg" data-caption="WOW!BASE Cool Japan — A view from the train on the way to Obama." data-i18n-data-caption-ja="【WOW!BASEクールジャパン動画作成プログラム】小浜市に移動中の車内からの景色" data-i18n-data-caption-en="WOW!BASE Cool Japan — A view from the train on the way to Obama."><img loading="lazy" src="images/index.galler/day2.train2.jpg" alt="WOW!BASE Cool Japan — A view from the train on the way to Obama." data-i18n-alt-ja="【WOW!BASEクールジャパン動画作成プログラム】小浜市に移動中の車内からの景色" data-i18n-alt-en="WOW!BASE Cool Japan — A view from the train on the way to Obama."><span><span data-ja="【WOW!BASEクールジャパン動画作成プログラム】小浜市に移動中の車内からの景色" data-en="WOW!BASE Cool Japan — A view from the train on the way to Obama.">WOW!BASE Cool Japan — A view from the train on the way to Obama.</span></span><b aria-hidden="true">↗</b></button>
+<button class="photo" type="button" data-full="images/index.galler/day3.train.jpg" data-caption="WOW!BASE Cool Japan — Returning to Tsuruga after two days of fieldwork in Obama." data-i18n-data-caption-ja="【WOW!BASEクールジャパン動画作成プログラム】2日間の取材を終え小浜から敦賀駅に帰る時の車内から" data-i18n-data-caption-en="WOW!BASE Cool Japan — Returning to Tsuruga after two days of fieldwork in Obama."><img loading="lazy" src="images/index.galler/day3.train.jpg" alt="WOW!BASE Cool Japan — Returning to Tsuruga after two days of fieldwork in Obama." data-i18n-alt-ja="【WOW!BASEクールジャパン動画作成プログラム】2日間の取材を終え小浜から敦賀駅に帰る時の車内から" data-i18n-alt-en="WOW!BASE Cool Japan — Returning to Tsuruga after two days of fieldwork in Obama."><span><span data-ja="【WOW!BASEクールジャパン動画作成プログラム】2日間の取材を終え小浜から敦賀駅に帰る時の車内から" data-en="WOW!BASE Cool Japan — Returning to Tsuruga after two days of fieldwork in Obama.">WOW!BASE Cool Japan — Returning to Tsuruga after two days of fieldwork in Obama.</span></span><b aria-hidden="true">↗</b></button>
+<button class="photo" type="button" data-full="images/index.galler/day4.recruit.jpg" data-caption="WOW!BASE Cool Japan — After the first day of editing at Recruit headquarters in Tokyo." data-i18n-data-caption-ja="【WOW!BASEクールジャパン動画作成プログラム】場所をリクルート東京本社に移し、編集作業1日目の帰りの景色" data-i18n-data-caption-en="WOW!BASE Cool Japan — After the first day of editing at Recruit headquarters in Tokyo."><img loading="lazy" src="images/index.galler/day4.recruit.jpg" alt="WOW!BASE Cool Japan — After the first day of editing at Recruit headquarters in Tokyo." data-i18n-alt-ja="【WOW!BASEクールジャパン動画作成プログラム】場所をリクルート東京本社に移し、編集作業1日目の帰りの景色" data-i18n-alt-en="WOW!BASE Cool Japan — After the first day of editing at Recruit headquarters in Tokyo."><span><span data-ja="【WOW!BASEクールジャパン動画作成プログラム】場所をリクルート東京本社に移し、編集作業1日目の帰りの景色" data-en="WOW!BASE Cool Japan — After the first day of editing at Recruit headquarters in Tokyo.">WOW!BASE Cool Japan — After the first day of editing at Recruit headquarters in Tokyo.</span></span><b aria-hidden="true">↗</b></button>
+<button class="photo" type="button" data-full="images/index.galler/day9.jpg" data-caption="WOW!BASE Cool Japan — Checking audio and visuals before submitting the final video." data-i18n-data-caption-ja="【WOW!BASEクールジャパン動画作成プログラム】完成動画提出前の音声・画像確認" data-i18n-data-caption-en="WOW!BASE Cool Japan — Checking audio and visuals before submitting the final video."><img loading="lazy" src="images/index.galler/day9.jpg" alt="WOW!BASE Cool Japan — Checking audio and visuals before submitting the final video." data-i18n-alt-ja="【WOW!BASEクールジャパン動画作成プログラム】完成動画提出前の音声・画像確認" data-i18n-alt-en="WOW!BASE Cool Japan — Checking audio and visuals before submitting the final video."><span><span data-ja="【WOW!BASEクールジャパン動画作成プログラム】完成動画提出前の音声・画像確認" data-en="WOW!BASE Cool Japan — Checking audio and visuals before submitting the final video.">WOW!BASE Cool Japan — Checking audio and visuals before submitting the final video.</span></span><b aria-hidden="true">↗</b></button>
+<button class="photo" type="button" data-full="images/index.galler/Npac.jpg" data-caption="Cool Japan Policy Discussion — Identifying policy challenges in a group workshop." data-i18n-data-caption-ja="【WOW!BASE クールジャパン政策内閣府ディスカッション】グループワークにて現在のクールジャパン政策の課題を列挙" data-i18n-data-caption-en="Cool Japan Policy Discussion — Identifying policy challenges in a group workshop."><img loading="lazy" src="images/index.galler/Npac.jpg" alt="Cool Japan Policy Discussion — Identifying policy challenges in a group workshop." data-i18n-alt-ja="【WOW!BASE クールジャパン政策内閣府ディスカッション】グループワークにて現在のクールジャパン政策の課題を列挙" data-i18n-alt-en="Cool Japan Policy Discussion — Identifying policy challenges in a group workshop."><span><span data-ja="【WOW!BASE クールジャパン政策内閣府ディスカッション】グループワークにて現在のクールジャパン政策の課題を列挙" data-en="Cool Japan Policy Discussion — Identifying policy challenges in a group workshop.">Cool Japan Policy Discussion — Identifying policy challenges in a group workshop.</span></span><b aria-hidden="true">↗</b></button>
+<button class="photo" type="button" data-full="images/index.galler/nface.jpg" data-caption="Cool Japan Policy Discussion — A group photo outside Central Government Building No. 8." data-i18n-data-caption-ja="【WOW!BASE クールジャパン政策内閣府ディスカッション】ディスカッションを行った内閣府中央合同庁舎8号館前で記念撮影" data-i18n-data-caption-en="Cool Japan Policy Discussion — A group photo outside Central Government Building No. 8."><img loading="lazy" src="images/index.galler/nface.jpg" alt="Cool Japan Policy Discussion — A group photo outside Central Government Building No. 8." data-i18n-alt-ja="【WOW!BASE クールジャパン政策内閣府ディスカッション】ディスカッションを行った内閣府中央合同庁舎8号館前で記念撮影" data-i18n-alt-en="Cool Japan Policy Discussion — A group photo outside Central Government Building No. 8."><span><span data-ja="【WOW!BASE クールジャパン政策内閣府ディスカッション】ディスカッションを行った内閣府中央合同庁舎8号館前で記念撮影" data-en="Cool Japan Policy Discussion — A group photo outside Central Government Building No. 8.">Cool Japan Policy Discussion — A group photo outside Central Government Building No. 8.</span></span><b aria-hidden="true">↗</b></button>
+<button class="photo" type="button" data-full="images/index.galler/nse24sea.JPG" data-caption="NSE24 — Dawn at the coastal launch site, Noshiro Space Event 2024." data-i18n-data-caption-ja="【NSE24】24年能代宇宙イベント海打ち会場の夜明け" data-i18n-data-caption-en="NSE24 — Dawn at the coastal launch site, Noshiro Space Event 2024."><img loading="lazy" src="images/index.galler/nse24sea.t.JPG" alt="NSE24 — Dawn at the coastal launch site, Noshiro Space Event 2024." data-i18n-alt-ja="【NSE24】24年能代宇宙イベント海打ち会場の夜明け" data-i18n-alt-en="NSE24 — Dawn at the coastal launch site, Noshiro Space Event 2024."><span><span data-ja="【NSE24】24年能代宇宙イベント海打ち会場の夜明け" data-en="NSE24 — Dawn at the coastal launch site, Noshiro Space Event 2024.">NSE24 — Dawn at the coastal launch site, Noshiro Space Event 2024.</span></span><b aria-hidden="true">↗</b></button>
+<button class="photo" type="button" data-full="images/index.galler/mikan.JPG" data-caption="NSE24 — Mikan, the coastal-launch rocket and my final vehicle before leaving the team." data-i18n-data-caption-ja="【NSE24】引退前最後の機体となった海打ち機体「みかん」" data-i18n-data-caption-en="NSE24 — Mikan, the coastal-launch rocket and my final vehicle before leaving the team."><img loading="lazy" src="images/index.galler/mikan.t.JPG" alt="NSE24 — Mikan, the coastal-launch rocket and my final vehicle before leaving the team." data-i18n-alt-ja="【NSE24】引退前最後の機体となった海打ち機体「みかん」" data-i18n-alt-en="NSE24 — Mikan, the coastal-launch rocket and my final vehicle before leaving the team."><span><span data-ja="【NSE24】引退前最後の機体となった海打ち機体「みかん」" data-en="NSE24 — Mikan, the coastal-launch rocket and my final vehicle before leaving the team.">NSE24 — Mikan, the coastal-launch rocket and my final vehicle before leaving the team.</span></span><b aria-hidden="true">↗</b></button>
+<button class="photo" type="button" data-full="images/index.galler/mikan.pe.JPG" data-caption="NSE24 — Mikan undergoing its final pre-launch review." data-i18n-data-caption-ja="【NSE24】打ち上げ前の最終審査を受けるみかん" data-i18n-data-caption-en="NSE24 — Mikan undergoing its final pre-launch review."><img loading="lazy" src="images/index.galler/mikan.pe.JPG" alt="NSE24 — Mikan undergoing its final pre-launch review." data-i18n-alt-ja="【NSE24】打ち上げ前の最終審査を受けるみかん" data-i18n-alt-en="NSE24 — Mikan undergoing its final pre-launch review."><span><span data-ja="【NSE24】打ち上げ前の最終審査を受けるみかん" data-en="NSE24 — Mikan undergoing its final pre-launch review.">NSE24 — Mikan undergoing its final pre-launch review.</span></span><b aria-hidden="true">↗</b></button>
+<button class="photo" type="button" data-full="images/index.galler/nse24mikanpe.JPG" data-caption="NSE24 — Integrating all rocket sections before launch." data-i18n-data-caption-ja="【NSE24】打ち上げ前に全セクションを「全組」" data-i18n-data-caption-en="NSE24 — Integrating all rocket sections before launch."><img loading="lazy" src="images/index.galler/nse24mikanpe.JPG" alt="NSE24 — Integrating all rocket sections before launch." data-i18n-alt-ja="【NSE24】打ち上げ前に全セクションを「全組」" data-i18n-alt-en="NSE24 — Integrating all rocket sections before launch."><span><span data-ja="【NSE24】打ち上げ前に全セクションを「全組」" data-en="NSE24 — Integrating all rocket sections before launch.">NSE24 — Integrating all rocket sections before launch.</span></span><b aria-hidden="true">↗</b></button>
+<button class="photo" type="button" data-full="images/index.galler/nse24sea.pe.JPG" data-caption="NSE24 — Preparing Mikan for launch." data-i18n-data-caption-ja="【NSE24】みかんの打ち上げ前の準備中の様子" data-i18n-data-caption-en="NSE24 — Preparing Mikan for launch."><img loading="lazy" src="images/index.galler/nse24sea.pe.JPG" alt="NSE24 — Preparing Mikan for launch." data-i18n-alt-ja="【NSE24】みかんの打ち上げ前の準備中の様子" data-i18n-alt-en="NSE24 — Preparing Mikan for launch."><span><span data-ja="【NSE24】みかんの打ち上げ前の準備中の様子" data-en="NSE24 — Preparing Mikan for launch.">NSE24 — Preparing Mikan for launch.</span></span><b aria-hidden="true">↗</b></button>
+<button class="photo" type="button" data-full="images/index.galler/tubomi.JPG" data-caption="ISE23/NSE23 — Exploring the fairing mechanism structure for Tsubomi." data-i18n-data-caption-ja="【ISE23/NSE23】元ISE23機体「蕾」で用いるフェアリング機構の構造検討時の様子" data-i18n-data-caption-en="ISE23/NSE23 — Exploring the fairing mechanism structure for Tsubomi."><img loading="lazy" src="images/index.galler/tubomi.JPG" alt="ISE23/NSE23 — Exploring the fairing mechanism structure for Tsubomi." data-i18n-alt-ja="【ISE23/NSE23】元ISE23機体「蕾」で用いるフェアリング機構の構造検討時の様子" data-i18n-alt-en="ISE23/NSE23 — Exploring the fairing mechanism structure for Tsubomi."><span><span data-ja="【ISE23/NSE23】元ISE23機体「蕾」で用いるフェアリング機構の構造検討時の様子" data-en="ISE23/NSE23 — Exploring the fairing mechanism structure for Tsubomi.">ISE23/NSE23 — Exploring the fairing mechanism structure for Tsubomi.</span></span><b aria-hidden="true">↗</b></button>
+<button class="photo" type="button" data-full="images/index.galler/wakaba.JPG" data-caption="New Member Project — Wakaba, my first composite-propellant rocket." data-i18n-data-caption-ja="【新入生プロジェクト】初めてのロケット製作となったコンポジット推進剤ロケット「若葉」" data-i18n-data-caption-en="New Member Project — Wakaba, my first composite-propellant rocket."><img loading="lazy" src="images/index.galler/wakaba.JPG" alt="New Member Project — Wakaba, my first composite-propellant rocket." data-i18n-alt-ja="【新入生プロジェクト】初めてのロケット製作となったコンポジット推進剤ロケット「若葉」" data-i18n-alt-en="New Member Project — Wakaba, my first composite-propellant rocket."><span><span data-ja="【新入生プロジェクト】初めてのロケット製作となったコンポジット推進剤ロケット「若葉」" data-en="New Member Project — Wakaba, my first composite-propellant rocket.">New Member Project — Wakaba, my first composite-propellant rocket.</span></span><b aria-hidden="true">↗</b></button>
+<button class="photo" type="button" data-full="images/index.galler/wakaba.mid.JPG" data-caption="New Member Project — Combining the Wakaba electronics section (below) and nose cone." data-i18n-data-caption-ja="【新入生プロジェクト】若葉製作中の一幕．担当の電装部分(下)とノーズコーンの組合せ" data-i18n-data-caption-en="New Member Project — Combining the Wakaba electronics section (below) and nose cone."><img loading="lazy" src="images/index.galler/wakaba.mid.JPG" alt="New Member Project — Combining the Wakaba electronics section (below) and nose cone." data-i18n-alt-ja="【新入生プロジェクト】若葉製作中の一幕．担当の電装部分(下)とノーズコーンの組合せ" data-i18n-alt-en="New Member Project — Combining the Wakaba electronics section (below) and nose cone."><span><span data-ja="【新入生プロジェクト】若葉製作中の一幕．担当の電装部分(下)とノーズコーンの組合せ" data-en="New Member Project — Combining the Wakaba electronics section (below) and nose cone.">New Member Project — Combining the Wakaba electronics section (below) and nose cone.</span></span><b aria-hidden="true">↗</b></button>
+<button class="photo" type="button" data-full="images/index.galler/wakabakapre.jpg" data-caption="New Member Project — A multifunctional component combining the airframe coupler, release-motor mount, and electronics board mount." data-i18n-data-caption-ja="【新入生プロジェクト】電装部分とパラシュート解放部の間の部品．機体のカプラー・解放部のモーター固定治具・電装基板固定治具を一つの部品に担わせたユニバーサル部品" data-i18n-data-caption-en="New Member Project — A multifunctional component combining the airframe coupler, release-motor mount, and electronics board mount."><img loading="lazy" src="images/index.galler/wakabakapre.jpg" alt="New Member Project — A multifunctional component combining the airframe coupler, release-motor mount, and electronics board mount." data-i18n-alt-ja="【新入生プロジェクト】電装部分とパラシュート解放部の間の部品．機体のカプラー・解放部のモーター固定治具・電装基板固定治具を一つの部品に担わせたユニバーサル部品" data-i18n-alt-en="New Member Project — A multifunctional component combining the airframe coupler, release-motor mount, and electronics board mount."><span><span data-ja="【新入生プロジェクト】電装部分とパラシュート解放部の間の部品．機体のカプラー・解放部のモーター固定治具・電装基板固定治具を一つの部品に担わせたユニバーサル部品" data-en="New Member Project — A multifunctional component combining the airframe coupler, release-motor mount, and electronics board mount.">New Member Project — A multifunctional component combining the airframe coupler, release-motor mount, and electronics board mount.</span></span><b aria-hidden="true">↗</b></button></div></section>
+<div class="page-end wrap"><a class="text-link" href="#top"><span data-ja="ページの先頭へ" data-en="Back to top">ページの先頭へ</span> ↑</a></div>
+</main><footer><div class="wrap footer-inner"><span>© Kai Ogura — All Rights Reserved.</span><span>KAI OGURA / PORTFOLIO</span></div></footer>
+<dialog aria-label="Enlarged gallery photo" data-i18n-aria-label-ja="ギャラリー写真の拡大表示" data-i18n-aria-label-en="Enlarged gallery photo"><button type="button" class="close" aria-label="Close" data-i18n-aria-label-ja="閉じる" data-i18n-aria-label-en="Close">×</button><img alt=""><p></p></dialog>
+<script>
+(()=>{'use strict';
+const menu=document.querySelector('.menu'),nav=document.querySelector('nav');
+function closeMenu(){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent=document.documentElement.lang==='ja'?'メニュー ＋':'Menu ＋'}
+menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=document.documentElement.lang==='ja'?(open?'閉じる −':'メニュー ＋'):(open?'Close −':'Menu ＋')});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+if('IntersectionObserver' in window){document.documentElement.classList.add('js');const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.06});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el))}
+const progress=document.querySelector('.progress'),links=[...nav.querySelectorAll('a')],sections=[document.querySelector('.hero'),...document.querySelectorAll('section.content')];let pending=false;
+function update(){const height=document.documentElement.scrollHeight-innerHeight;progress.style.width=(height>0?scrollY/height*100:0)+'%';let index=0;sections.forEach((s,i)=>{if(s.getBoundingClientRect().top<innerHeight*.4)index=i});links.forEach((a,i)=>{a.classList.toggle('active',i===index);if(i===index)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')});pending=false}
+addEventListener('scroll',()=>{if(!pending){pending=true;requestAnimationFrame(update)}},{passive:true});addEventListener('resize',update);update();
+const rows=[...document.querySelectorAll('.news-row')],search=document.querySelector('#search'),count=document.querySelector('#result-count');function filter(){const q=search.value.trim().toLocaleLowerCase();let visible=0;rows.forEach(row=>{row.hidden=!row.textContent.toLocaleLowerCase().includes(q);if(!row.hidden)visible++});count.textContent=visible+' / '+rows.length+(document.documentElement.lang==='ja'?' 件':' RECORDS');document.querySelector('#empty').hidden=visible!==0}search.addEventListener('input',filter);filter();
+const dialog=document.querySelector('dialog'),large=dialog.querySelector('img'),caption=dialog.querySelector('p');document.querySelectorAll('.photo').forEach(button=>button.addEventListener('click',()=>{large.src=button.dataset.full;large.alt=button.dataset.caption;caption.textContent=button.dataset.caption;dialog.showModal()}));dialog.querySelector('.close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});dialog.addEventListener('close',()=>large.removeAttribute('src'));
+const languageButtons=[...document.querySelectorAll('[data-language]')];
+const navigationLabels={en:['HOME','PROFILE','ACTIVITY','GALLERY ↗'],ja:['ホーム','プロフィール','活動履歴','ギャラリー ↗']};
+function setLanguage(language){
+const lang=language==='ja'?'ja':'en';document.documentElement.lang=lang;
+document.querySelectorAll('[data-en][data-ja]').forEach(el=>{el.textContent=el.dataset[lang]});
+for(const attr of ['alt','aria-label','placeholder','data-caption']){document.querySelectorAll('[data-i18n-'+attr+'-'+lang+']').forEach(el=>el.setAttribute(attr,el.getAttribute('data-i18n-'+attr+'-'+lang)))}
+links.forEach((a,i)=>a.textContent=navigationLabels[lang][i]);
+languageButtons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.language===lang)));
+document.title=lang==='ja'?'Kai Ogura — ポートフォリオ':'Kai Ogura — Portfolio';
+document.querySelector('meta[name="description"]').content=lang==='ja'?'小倉 可維のポートフォリオ。MEMSジャイロスコープ、宇宙開発、ものづくりの活動記録。':'Kai Ogura portfolio: MEMS gyroscope research, space engineering, and other activities.';
+closeMenu();filter();
+if(dialog.open){const photo=[...document.querySelectorAll('.photo')].find(p=>new URL(p.dataset.full,document.baseURI).href===large.src);if(photo){large.alt=photo.dataset.caption;caption.textContent=photo.dataset.caption}}
+try{localStorage.setItem('kai-ogura-x2-language',lang)}catch{}
+}
+languageButtons.forEach(button=>button.addEventListener('click',()=>setLanguage(button.dataset.language)));
+let savedLanguage='ja';try{savedLanguage=localStorage.getItem('kai-ogura-x2-language')||'ja'}catch{}
+setLanguage(savedLanguage);
+})();
+</script></body></html>
