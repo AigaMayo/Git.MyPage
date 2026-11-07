@@ -169,6 +169,81 @@
   } catch {
     // Use Japanese when browser storage is unavailable.
   }
+  // A fixed year scale; event descriptions open only on request.
+  function initializeTimeline() {
+    const track = document.querySelector('#experience-track');
+    if (!track) return;
+    const history = track.closest('.history');
+    const controls = history.querySelector('.timeline-controls');
+    const previous = controls.querySelector('.timeline-prev');
+    const next = controls.querySelector('.timeline-next');
+    const position = controls.querySelector('.timeline-position');
+    const events = [...track.querySelectorAll('.timeline-event')];
+    const panel = history.querySelector('.timeline-detail-panel');
+    const descriptions = [...panel.querySelectorAll('.experience-detail')];
+    const close = panel.querySelector('.timeline-detail-close');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let selected = null;
+    let pending = false;
+
+    function update() {
+      const maximum = Math.max(0, track.scrollWidth - track.clientWidth);
+      previous.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= maximum - 2;
+      const first = Math.max(2017, Math.min(2026, 2017 + Math.floor((track.scrollLeft - 50) / 220)));
+      const last = Math.max(first, Math.min(2026, 2017 + Math.floor((track.scrollLeft + track.clientWidth - 50) / 220)));
+      position.textContent = `${first} – ${last}`;
+      pending = false;
+    }
+
+    function move(direction) {
+      track.scrollBy({ left: direction * 440, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+    }
+    function closeDetails(restoreFocus = false) {
+      events.forEach(event => event.setAttribute('aria-expanded', 'false'));
+      descriptions.forEach(description => { description.hidden = true; });
+      panel.hidden = true;
+      if (restoreFocus && selected) selected.focus({ preventScroll: true });
+      selected = null;
+    }
+    events.forEach(event => {
+      event.addEventListener('click', () => {
+        const wasOpen = event.getAttribute('aria-expanded') === 'true';
+        closeDetails();
+        if (wasOpen) return;
+        selected = event;
+        event.setAttribute('aria-expanded', 'true');
+        document.getElementById(event.getAttribute('aria-controls')).hidden = false;
+        panel.hidden = false;
+        panel.scrollIntoView({ block: 'nearest', behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+      });
+    });
+    close.addEventListener('click', () => closeDetails(true));
+    history.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !panel.hidden) closeDetails(true);
+    });
+    previous.addEventListener('click', () => move(-1));
+    next.addEventListener('click', () => move(1));
+    track.addEventListener('keydown', event => {
+      if (event.target !== track) return;
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        move(event.key === 'ArrowLeft' ? -1 : 1);
+      }
+    });
+    track.addEventListener('scroll', () => {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(update);
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    controls.hidden = false;
+    requestAnimationFrame(() => {
+      track.scrollLeft = track.scrollWidth - track.clientWidth;
+      update();
+    });
+  }
+  initializeTimeline();
   setLanguage(savedLanguage);
   updateScrollState();
 })();

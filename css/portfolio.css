@@ -1363,3 +1363,61 @@ section.content {
     padding-top:15px
   }
 }
+
+/* Experience: a fixed 220px/year axis with click-to-open event details. */
+.history { --timeline-bg:#31463e; --timeline-ink:#fafbf8; margin-top:65px; padding:36px 28px 25px; background:var(--timeline-bg); color:var(--timeline-ink); border-radius:10px; }
+.timeline-heading { display:flex; justify-content:space-between; align-items:center; gap:20px; }
+.timeline-heading .mini-title { margin:0; color:#d6e7dc; }
+.timeline-hint { margin:10px 0 0; font-size:12px; color:#d2ddd5; }
+.timeline-controls { display:flex; align-items:center; gap:9px; }
+.timeline-position { font-size:12px; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.timeline-controls button { width:43px; height:43px; border:1px solid #fafbf870; border-radius:50%; background:transparent; color:var(--timeline-ink); font-size:20px; }
+.timeline-controls button:hover:not(:disabled) { background:var(--timeline-ink); color:var(--timeline-bg); }
+.timeline-controls button:disabled { opacity:.25; cursor:default; }
+.timeline-track { position:relative; overflow-x:auto; overscroll-behavior-x:contain; scrollbar-width:auto; scrollbar-color:#c7d7ca #23382e; margin-top:18px; padding-bottom:15px; }
+.timeline-track:focus-visible,.timeline-event:focus-visible { outline:2px solid #e0c28d; outline-offset:5px; }
+.timeline-canvas { position:relative; width:2250px; height:555px; }
+.timeline-canvas::before { content:''; position:absolute; top:270px; left:50px; right:20px; height:3px; background:#fafbf8; }
+.timeline-year { position:absolute; top:244px; transform:translateX(-50%); font-family:Georgia,serif; font-size:22px; line-height:1; }
+.timeline-year::after { content:''; position:absolute; top:24px; left:50%; height:10px; width:1px; background:#fafbf8; }
+.timeline-year-group { position:absolute; top:20px; width:205px; height:205px; padding:0 12px; border-left:1px solid #fafbf850; display:flex; flex-direction:column; justify-content:end; gap:13px; }
+.timeline-year-group::after { content:''; position:absolute; bottom:-17px; left:-1px; height:17px; width:1px; background:#fafbf850; }
+.timeline-event { position:relative; padding:0; border:0; background:none; text-align:left; color:var(--timeline-ink); transition:color .2s; }
+.timeline-event:hover,.timeline-event[aria-expanded="true"] { color:#e0c28d; }
+.event-title { font-size:12px; line-height:1.75; overflow-wrap:anywhere; }
+.annual-event { display:flex; gap:8px; align-items:start; flex-shrink:0; width:100%; }
+.annual-event .event-title { flex:1; }
+.event-more { color:#d4c498; font-size:16px; }
+.event-period { display:block; font-size:11px; letter-spacing:.04em; color:#d4c498; margin-bottom:5px; }
+.timeline-range { position:absolute; border-top:3px solid #cbb381; }
+.timeline-range::before,.timeline-range::after { content:''; position:absolute; top:-5px; height:8px; width:1px; background:#e4d3ae; }
+.timeline-range::before { left:0; }.timeline-range::after { right:0; }
+.range-endpoints { position:absolute; top:-22px; left:0; width:100%; display:flex; justify-content:space-between; color:#e4d3ae; font-size:10px; white-space:nowrap; }
+.range-title { top:7px; max-width:100%; padding-right:12px; }
+.range-title .event-title { font-size:13px; }
+.fte-years, .research-years { position:absolute; top:38px; left:0; width:100%; }
+.fte-year, .research-year { position:absolute; width:95px; padding-left:8px; border-left:1px solid #e4d3ae70; display:flex; flex-direction:column; gap:3px; font-size:11px; }
+.fte-year::before, .research-year::before { content:''; position:absolute; left:-4px; top:-4px; width:6px; height:6px; background:#cbb381; border-radius:50%; }
+.fte-year > span:last-child, .research-year > span:last-child { font-size:10px; color:#e4d3ae; }
+.timeline-detail-panel { position:relative; margin-top:25px; padding:28px 50px 28px 28px; background:#fafbf8; color:#31463e; border-radius:6px; }
+.timeline-detail-close { position:absolute; right:14px; top:10px; border:0; background:none; font-size:28px; color:#31463e; }
+.experience-detail h3 { margin:0 0 15px; font-size:19px; font-weight:500; line-height:1.8; }
+.experience-detail ul { font-size:13px; line-height:2; padding-left:20px; margin-bottom:0; }
+.experience-detail .event-period { color:#65756c; }
+@media(max-width:760px) {
+  .history { padding:26px 16px 20px; margin-inline:-16px; border-radius:6px; }
+  .timeline-heading { align-items:start; gap:12px; }
+  .timeline-hint { font-size:10px; }
+  .timeline-controls { gap:5px; flex-wrap:wrap; justify-content:end; }
+  .timeline-controls button { width:35px; height:35px; }
+  .timeline-position { font-size:10px; width:100%; text-align:right; }
+  .timeline-detail-panel { padding:23px 40px 23px 20px; }
+}
+@media print {
+  .history { background:white; color:#31463e; }
+  .timeline-controls,.timeline-track,.timeline-detail-close { display:none; }
+  .timeline-detail-panel[hidden],.experience-detail[hidden] { display:block!important; }
+  .experience-detail { break-inside:avoid; margin-bottom:25px; }
+}
+
+
