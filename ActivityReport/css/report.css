@@ -1,0 +1,218 @@
+﻿/* Shared colors, typography and site furniture come from ../../css/portfolio.css. */
+.report-page header {
+    position: sticky;
+}
+
+.report-page .header-inner {
+    min-height: 82px;
+    height: auto;
+    padding-block: 20px;
+}
+
+.report-page .header-inner nav {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 12px 26px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+}
+
+.report-heading {
+    padding-top: 75px;
+}
+
+.report-heading h1 {
+    margin: 22px 0 18px;
+    font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+    font-size: clamp(34px, 5vw, 56px);
+    font-weight: 400;
+    letter-spacing: .08em;
+    line-height: 1.5;
+}
+
+.report-heading h1 span {
+    display: block;
+    margin-top: 10px;
+    color: var(--muted);
+    font-family: Georgia, serif;
+    font-size: 18px;
+    letter-spacing: .02em;
+}
+
+.report-intro {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.report-index {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    margin-top: 38px;
+    padding-block: 20px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    font-size: 12px;
+}
+
+.report-index > span {
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: .12em;
+}
+
+.report-index a {
+    padding-block: 6px;
+    color: var(--accent);
+}
+
+.report-index a:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.report-count {
+    margin-left: auto;
+}
+
+.report-year {
+    display: grid;
+    grid-template-columns: 170px minmax(0, 1fr);
+    gap: 45px;
+    padding-top: 52px;
+    scroll-margin-top: 110px;
+}
+
+.report-year h2 {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.report-year h2 span {
+    display: block;
+    margin-top: 10px;
+    color: var(--muted);
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: .12em;
+}
+
+.report-list {
+    margin: 0;
+    min-width: 0;
+}
+
+.report-entry {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.report-entry:first-child {
+    padding-top: 0;
+}
+
+.report-entry dt {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 11px;
+    font-variant-numeric: tabular-nums;
+}
+
+.report-category {
+    padding: 2px 10px;
+    border-radius: 4px;
+    background: var(--panel);
+    color: var(--accent);
+    font-size: 10px;
+}
+
+.report-entry dd {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 2.2;
+    overflow-wrap: anywhere;
+}
+
+.report-entry dd a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.report-entry dd a:hover {
+    color: var(--ink);
+}
+
+.report-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px 24px;
+    padding: 60px 0;
+}
+
+.report-credit {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 9px;
+}
+
+@media (max-width: 760px) {
+    .report-page .header-inner {
+        min-height: 70px;
+        flex-wrap: wrap;
+        gap: 10px 20px;
+        padding-block: 14px;
+    }
+
+    .report-page .header-inner nav {
+        gap: 10px 16px;
+        font-size: 9px;
+        letter-spacing: .06em;
+    }
+
+    .report-heading {
+        padding-top: 40px;
+    }
+
+    .report-intro {
+        font-size: 12px;
+    }
+
+    .report-index {
+        gap: 10px 20px;
+    }
+
+    .report-year {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 25px;
+        padding-top: 38px;
+        scroll-margin-top: 145px;
+    }
+
+    .report-year h2 {
+        display: flex;
+        align-items: baseline;
+        gap: 18px;
+        font-size: 32px;
+    }
+
+    .report-entry dd {
+        font-size: 12px;
+    }
+
+    .report-bottom {
+        padding-block: 40px;
+    }
+}
