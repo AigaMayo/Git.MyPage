@@ -364,7 +364,7 @@ details ul {
   display:block;
   color:var(--accent);
   font-size:10px;
-  margin-top:7px
+  margin-top:3px
 }
 .news-row a {
   color:var(--accent);
@@ -566,7 +566,7 @@ dialog p {
   }
   .news-row {
     grid-template-columns:1fr;
-    gap:12px
+    gap:6px
   }
   .news-date span {
     display:inline-block;
@@ -812,7 +812,8 @@ details ul {
 .news-row {
   font-size:12px;
   color:#53665c;
-  padding:28px 0
+  padding:14px 0;
+  line-height:1.85
 }
 .news-date {
   font-size:12px

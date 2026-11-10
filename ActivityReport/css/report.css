@@ -111,7 +111,7 @@
 }
 
 .report-entry {
-    padding: 24px 0;
+    padding: 14px 0;
     border-bottom: 1px solid var(--line);
 }
 
@@ -137,10 +137,10 @@
 }
 
 .report-entry dd {
-    margin: 12px 0 0;
+    margin: 6px 0 0;
     color: var(--muted);
     font-size: 13px;
-    line-height: 2.2;
+    line-height: 1.85;
     overflow-wrap: anywhere;
 }
 
