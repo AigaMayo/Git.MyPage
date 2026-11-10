@@ -21,6 +21,14 @@
     return span;
   }
 
+  function category(record, className) {
+    const label = window.activityCategories?.[record.category]
+      || { ja: record.category, en: record.category };
+    const node = translated(label);
+    if (className) node.className = className;
+    return node;
+  }
+
   function content(record) {
     const fragment = document.createDocumentFragment();
     fragment.append(translated(record.text));
@@ -48,7 +56,7 @@
       for (const record of records.slice(0, count)) {
         const row = element('article', 'news-row');
         const meta = element('div', 'news-date');
-        meta.append(date(record), element('span', '', record.category));
+        meta.append(date(record), category(record));
         const body = element('div');
         body.append(content(record));
         row.append(meta, body);
@@ -83,7 +91,7 @@
       }
       const row = element('div', 'report-entry');
       const meta = element('dt');
-      meta.append(date(record), element('span', 'report-category', record.category));
+      meta.append(date(record), category(record, 'report-category'));
       const body = element('dd');
       body.append(content(record));
       row.append(meta, body);

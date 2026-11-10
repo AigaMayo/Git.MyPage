@@ -6,7 +6,7 @@
 ```js
 {
   "date": "2026-11-10",
-  "category": "Research",
+  "category": "research",
   "text": {
     "ja": "活動報告の本文。",
     "en": "English description."
@@ -21,6 +21,11 @@
 ```
 
 - 日付は `YYYY-MM-DD`。表示時に日付の新しい順に並びます。
+- `category` は活動の種類で選びます。企業名・イベント名は本文に記載します。
+  `research`（研究開発）、`event`（学会・イベント）、`award`（受賞）、
+  `program`（プログラム参加）、`media`（メディア掲載）、
+  `publication`（資料公開）、`learning`（資格・学習）の7種類です。
+  表示名・英訳は `activity-data.js` 冒頭の `activityCategories` で管理します。
 - `en` が空文字の場合は日本語を表示します。HTML タグは使わず、本文は文字列で記述します。
 - リンクがなければ `"links": []` にします。
 - サイト内リンクはルートの `index.html` からの相対パスで指定します（例: `Data/F300/F340/index.html`）。
